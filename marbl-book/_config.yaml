@@ -9,3 +9,5 @@ title                       : CESM2 MARBL  # The title of the book. Will be plac
 author                      : MARBL Team  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : marbl_photo.jpeg  # A path to the book logo
+execute:
+  execute_notebooks: "off"
