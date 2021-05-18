@@ -34,4 +34,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: cesm2-marbl-book/_build/html
+        publish_dir: marbl-book/_build/html
