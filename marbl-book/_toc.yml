@@ -4,16 +4,25 @@
 - file: introduction
 - part: Model Description 
   chapters: 
+  - file: ../notebooks/tables/MARBL_settings_table
   - file: ../notebooks/phytoplankton_growth
 - part: Observational Datasets
   chapters:
   - file: obs_datasets
 - part: Model-Observation Comparison
   chapters:
-  - file: ../notebooks/mld
-  - file: ../notebooks/ventilation
-  - file: ../notebooks/nutrient-plot
-  - file: ../notebooks/nutrient-limitation
+  - file: ../notebooks/tables/Global_Flux_Table
+  - file: ../notebooks/figures/mld
+  - file: ../notebooks/figures/ventilation
+  - file: ../notebooks/figures/nutrient-plots
+  - file: ../notebooks/figures/nutrient-limitation
+  - file: ../notebooks/figures/biological-pump
+  - file: ../notebooks/figures/co2-flux
+  - file: ../notebooks/figures/DOM-comparison
+  - file: ../notebooks/figures/Ncycle-plots
+  - file: ../notebooks/figures/dFe-comparison
+  - file: ../notebooks/figures/transient-fgco2.ipynb
+  - file: ../notebooks/figures/transient-biological-pump
 - part: Conclusions
   chapters:
   - file: conclusions
