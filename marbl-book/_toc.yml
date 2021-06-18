@@ -1,15 +1,14 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-# #
-- file: introduction
-- part: Model Description 
-  chapters: 
+format: jb-book
+root: introduction
+parts:
+- caption: Model Description
+  chapters:
   - file: ../notebooks/tables/MARBL_settings_table
   - file: ../notebooks/phytoplankton_growth
-- part: Observational Datasets
+- caption: Observational Datasets
   chapters:
   - file: obs_datasets
-- part: Model-Observation Comparison
+- caption: Model-Observation Comparison
   chapters:
   - file: ../notebooks/tables/Global_Flux_Table
   - file: ../notebooks/figures/mld
@@ -23,7 +22,6 @@
   - file: ../notebooks/figures/dFe-comparison
   - file: ../notebooks/figures/transient-fgco2.ipynb
   - file: ../notebooks/figures/transient-biological-pump
-- part: Conclusions
+- caption: Conclusions
   chapters:
   - file: conclusions
-
