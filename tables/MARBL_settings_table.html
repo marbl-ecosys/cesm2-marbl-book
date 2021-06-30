@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate two tables for inclusion in the paper &#8212; CESM2 MARBL</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/marbl_photo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CESM2 MARBL</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Observations Description
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/obs_datasets.html">
+   Observational Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model Observation Comparison
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Global_Flux_Table.html">
+   Generating a Table of Global Fluxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/mld.html">
+   Mixed Layer Depth (MLD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/ventilation.html">
+   Ventilation tracers: CFCs, 14C, Cant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/nutrient-plots.html">
+   Nutrient Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/nutrient-limitation.html">
+   Nutrient Limitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/biological-pump.html">
+   Biological Pump
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/co2-flux.html">
+   CO
+   <sub>
+    2
+   </sub>
+   Flux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/Ncycle-plots.html">
+   Nutrient Cycle (Ncycle)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/transient-fgco2.html">
+   Transient CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/transient-biological-pump.html">
+   Transient Biological Pump
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusions.html">
+   Conclusions and Future Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tables/MARBL_settings_table.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tables/MARBL_settings_table.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="generate-two-tables-for-inclusion-in-the-paper">
+<h1>Generate two tables for inclusion in the paper<a class="headerlink" href="#generate-two-tables-for-inclusion-in-the-paper" title="Permalink to this headline">¶</a></h1>
+<p>The bigger table lists most of the model parameters mentioned in the paper.
+The smaller table shows how the dissolution length scales vary with depth.</p>
+<p><em>Note: this notebook requires access to two MARBL subdirectories that should be
+soft-linked directly into this <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> directory:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ln -s $MARBL/MARBL_tools .
+$ ln -s $MARBL/defaults .
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MARBL_tools</span>
+
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -d -iv -m -g -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">01059</span><span class="n">a9011b8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">MARBL_tools</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">yaml</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;MARBL_tools&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I think the easiest way to have consistency in units is to create a function here</span>
+<span class="k">def</span> <span class="nf">_unit_conversion</span><span class="p">(</span><span class="n">old_units</span><span class="p">):</span>
+    <span class="n">new_units</span> <span class="o">=</span> <span class="n">old_units</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;nmol/cm^3&quot;</span><span class="p">,</span> <span class="s2">&quot;mmol/m^3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;^2&quot;</span><span class="p">,</span> <span class="s2">&quot;$^2$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;^3&quot;</span><span class="p">,</span> <span class="s2">&quot;$^3$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;1/day&quot;</span><span class="p">,</span> <span class="s2">&quot;d$^{-1}$&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;MARBL_settings.yaml&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_in</span><span class="p">:</span>
+    <span class="n">config_dict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file_in</span><span class="p">)</span>
+<span class="n">MARBL_settings</span> <span class="o">=</span> <span class="n">MARBL_tools</span><span class="o">.</span><span class="n">MARBL_settings_class</span><span class="p">(</span><span class="s1">&#39;defaults/json/settings_cesm2.1.json&#39;</span><span class="p">,</span>
+                                                  <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;defaults&#39;</span><span class="p">][</span><span class="s1">&#39;saved_state_source&#39;</span><span class="p">],</span>
+                                                  <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;defaults&#39;</span><span class="p">][</span><span class="s1">&#39;grid&#39;</span><span class="p">]</span>
+                                                 <span class="p">)</span>
+<span class="n">table_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Parameter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">varname</span> <span class="ow">in</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">]:</span>
+    <span class="c1"># If table value isn&#39;t in MARBL_settings.yaml, we want to get it from MARBL_settings.settings_dict[varname]</span>
+    <span class="c1"># but some variables are modified such that we need to look at MARBL_settings._settings[&#39;general_parms&#39;][varname]</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">key</span> <span class="ow">in</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]]):</span>
+        <span class="n">param_value</span> <span class="o">=</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="c1"># fallback_dict shouldn&#39;t be used, but if it is I don&#39;t want to rely on garbage values fom last varname</span>
+        <span class="n">fallback_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
+                         <span class="s1">&#39;longname&#39;</span><span class="p">:</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
+                        <span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fallback_dict</span> <span class="o">=</span> <span class="n">MARBL_settings</span><span class="o">.</span><span class="n">settings_dict</span><span class="p">[</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;attrs&#39;</span><span class="p">]</span>
+            <span class="n">param_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">MARBL_settings</span><span class="o">.</span><span class="n">settings_dict</span><span class="p">[</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">fallback_dict</span> <span class="o">=</span> <span class="n">MARBL_settings</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;general_parms&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">param_value</span> <span class="o">=</span> <span class="n">MARBL_settings</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;general_parms&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;default_value&#39;</span><span class="p">][</span><span class="s1">&#39;default&#39;</span><span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">param_value</span> <span class="o">=</span> <span class="n">MARBL_settings</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;general_parms&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;default_value&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Parameters column contains variable name unless a different label was specified</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">varname</span><span class="p">)</span>
+    <span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Parameter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="c1"># Need a way to standardize units</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="n">fallback_dict</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">])</span>
+    <span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Units&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_unit_conversion</span><span class="p">(</span><span class="n">units</span><span class="p">))</span>
+
+    <span class="c1"># Description column contains variable longname unless a different description was specified</span>
+    <span class="n">desc</span> <span class="o">=</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">fallback_dict</span><span class="p">[</span><span class="s1">&#39;longname&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="s1">&#39;description_suffix&#39;</span> <span class="ow">in</span> <span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">]:</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="n">desc</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;Parameters&#39;</span><span class="p">][</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;description_suffix&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span>
+
+    <span class="c1"># value comes from parsing the JSON file</span>
+    
+    <span class="c1"># try / except block in case the variable is not numeric</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">param_value</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">param_value</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">):</span>
+            <span class="n">param_value</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">param_value</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">param_value</span><span class="p">)</span>
+
+<span class="c1"># Make table</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;max_colwidth&quot;</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table_dict</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Parameter&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Value</th>
+      <th>Units</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <th>Parameter</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>$\mu_{ref}$</th>
+      <td>5.0</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum C-spec growth rate at Tref for small phytoplankton and diatoms</td>
+    </tr>
+    <tr>
+      <th>$\mu_{ref,\mathrm{diaz}}$</th>
+      <td>2.5</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum C-spec growth rate at Tref for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$Q_{10}$</th>
+      <td>1.7</td>
+      <td>unitless</td>
+      <td>Q10 temperature coefficient</td>
+    </tr>
+    <tr>
+      <th>$T_{ref}$</th>
+      <td>30</td>
+      <td>$^\circ$C</td>
+      <td>Reference temperature</td>
+    </tr>
+    <tr>
+      <th>$\theta^{N}_{max,\mathrm{sp}}$</th>
+      <td>2.5</td>
+      <td>mg Chl / mmol</td>
+      <td>Maximum $\theta^N$ (Chl / N) for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$\theta^{N}_{max,\mathrm{diat}}$</th>
+      <td>4.0</td>
+      <td>mg Chl / mmol</td>
+      <td>Maximum $\theta^N$ (Chl / N) for diatoms</td>
+    </tr>
+    <tr>
+      <th>$\theta^{N}_{max,\mathrm{diaz}}$</th>
+      <td>2.5</td>
+      <td>mg Chl / mmol</td>
+      <td>Maximum $\theta^N$ (Chl / N) for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$\alpha^{Chl}_{\mathrm{sp}}$</th>
+      <td>0.39</td>
+      <td>mmol m$^2$/(mg Chl W day)</td>
+      <td>Initial slope of P\_I curve (GD98) for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$\alpha^{Chl}_{\mathrm{diat}}$</th>
+      <td>0.28</td>
+      <td>mmol m$^2$/(mg Chl W day)</td>
+      <td>Initial slope of P\_I curve (GD98) for diatoms</td>
+    </tr>
+    <tr>
+      <th>$\alpha^{Chl}_{\mathrm{diaz}}$</th>
+      <td>0.39</td>
+      <td>mmol m$^2$/(mg Chl W day)</td>
+      <td>Initial slope of P\_I curve (GD98) for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{sp}^{\ce{Fe}}$</th>
+      <td>3.0e-05</td>
+      <td>mmol/m$^3$</td>
+      <td>Fe uptake half-sat constant for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diat}^{\ce{Fe}}$</th>
+      <td>7.0e-05</td>
+      <td>mmol/m$^3$</td>
+      <td>Fe uptake half-sat constant for diatoms</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diaz}^{\ce{Fe}}$</th>
+      <td>4.5e-05</td>
+      <td>mmol/m$^3$</td>
+      <td>Fe uptake half-sat constant for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{sp}^{\ce{NO3}}$</th>
+      <td>0.25</td>
+      <td>mmol/m$^3$</td>
+      <td>NO3 uptake half-sat constant for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diat}^{\ce{NO3}}$</th>
+      <td>0.5</td>
+      <td>mmol/m$^3$</td>
+      <td>NO3 uptake half-sat constant for diatoms</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diaz}^{\ce{NO3}}$</th>
+      <td>2.0</td>
+      <td>mmol/m$^3$</td>
+      <td>NO3 uptake half-sat constant for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{sp}^{\ce{NH4}}$</th>
+      <td>0.01</td>
+      <td>mmol/m$^3$</td>
+      <td>NH4 uptake half-sat constant for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diat}^{\ce{NH4}}$</th>
+      <td>0.05</td>
+      <td>mmol/m$^3$</td>
+      <td>NH4 uptake half-sat constant for diatoms</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diaz}^{\ce{NH4}}$</th>
+      <td>0.2</td>
+      <td>mmol/m$^3$</td>
+      <td>NH4 uptake half-sat constant for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{sp}^{\ce{PO4}}$</th>
+      <td>0.01</td>
+      <td>mmol/m$^3$</td>
+      <td>PO4 uptake half-sat constant for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diat}^{\ce{PO4}}$</th>
+      <td>0.05</td>
+      <td>mmol/m$^3$</td>
+      <td>PO4 uptake half-sat constant for diatoms</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diaz}^{\ce{PO4}}$</th>
+      <td>0.015</td>
+      <td>mmol/m$^3$</td>
+      <td>PO4 uptake half-sat constant for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{sp}^{\ce{DOP}}$</th>
+      <td>0.3</td>
+      <td>mmol/m$^3$</td>
+      <td>DOP uptake half-sat constant for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diat}^{\ce{DOP}}$</th>
+      <td>0.5</td>
+      <td>mmol/m$^3$</td>
+      <td>DOP uptake half-sat constant for diatoms</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diaz}^{\ce{DOP}}$</th>
+      <td>0.075</td>
+      <td>mmol/m$^3$</td>
+      <td>DOP uptake half-sat constant for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_\mathrm{diat}^{\ce{SiO3}}$</th>
+      <td>0.7</td>
+      <td>mmol/m$^3$</td>
+      <td>SiO3 uptake half-sat constant for diatoms</td>
+    </tr>
+    <tr>
+      <th>$a_\mathrm{sp}^{min}$</th>
+      <td>0.01</td>
+      <td>d$^{-1}$</td>
+      <td>Minimum agg rate for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$a_\mathrm{diat}^{min}$</th>
+      <td>0.02</td>
+      <td>d$^{-1}$</td>
+      <td>Minimum agg rate for diatoms</td>
+    </tr>
+    <tr>
+      <th>$a_\mathrm{diaz}^{min}$</th>
+      <td>0.01</td>
+      <td>d$^{-1}$</td>
+      <td>Minimum agg rate for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$a_\mathrm{sp}^{max}$</th>
+      <td>0.5</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum agg rate for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$a_\mathrm{diat}^{max}$</th>
+      <td>0.5</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum agg rate for diatoms</td>
+    </tr>
+    <tr>
+      <th>$a_\mathrm{diaz}^{max}$</th>
+      <td>0.5</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum agg rate for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$g_\mathrm{sp}^{max}$</th>
+      <td>3.3</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum grazing rate for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$g_\mathrm{diat}^{max}$</th>
+      <td>3.15</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum grazing rate for diatoms</td>
+    </tr>
+    <tr>
+      <th>$g_\mathrm{diaz}^{max}$</th>
+      <td>3.3</td>
+      <td>d$^{-1}$</td>
+      <td>Maximum grazing rate for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$K_i^{P}$</th>
+      <td>1.2</td>
+      <td>mmol/m$^3$</td>
+      <td>zooplankton grazing half saturation constant for all phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$\gamma_\mathrm{sp}$</th>
+      <td>0.3</td>
+      <td>unitless</td>
+      <td>Gross growth efficiency coefficient for grazing for small phytoplankton</td>
+    </tr>
+    <tr>
+      <th>$\gamma_\mathrm{diat}$</th>
+      <td>0.25</td>
+      <td>unitless</td>
+      <td>Gross growth efficiency coefficient for grazing for diatoms</td>
+    </tr>
+    <tr>
+      <th>$\gamma_\mathrm{diaz}$</th>
+      <td>0.3</td>
+      <td>unitless</td>
+      <td>Gross growth efficiency coefficient for grazing for diazotrophs</td>
+    </tr>
+    <tr>
+      <th>$m_Z$</th>
+      <td>0.1</td>
+      <td>d$^{-1}$</td>
+      <td>Linear mortality rate</td>
+    </tr>
+    <tr>
+      <th>$a_Z$</th>
+      <td>0.4</td>
+      <td>d$^{-1}$ / (mmol/m$^3$)</td>
+      <td>Quadratic mortality rate</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{tabular}{llll}
+\toprule
+                       Parameter &amp;   Value &amp;                     Units &amp;                                                             Description \\
+\midrule
+                     $\mu_{ref}$ &amp;     5.0 &amp;                  d$^{-1}$ &amp;  Maximum C-spec growth rate at Tref for small phytoplankton and diatoms \\
+       $\mu_{ref,\mathrm{diaz}}$ &amp;     2.5 &amp;                  d$^{-1}$ &amp;                      Maximum C-spec growth rate at Tref for diazotrophs \\
+                        $Q_{10}$ &amp;     1.7 &amp;                  unitless &amp;                                             Q10 temperature coefficient \\
+                       $T_{ref}$ &amp;      30 &amp;                 $^\circ$C &amp;                                                   Reference temperature \\
+  $\theta^{N}_{max,\mathrm{sp}}$ &amp;     2.5 &amp;             mg Chl / mmol &amp;                    Maximum $\theta^N$ (Chl / N) for small phytoplankton \\
+$\theta^{N}_{max,\mathrm{diat}}$ &amp;     4.0 &amp;             mg Chl / mmol &amp;                                Maximum $\theta^N$ (Chl / N) for diatoms \\
+$\theta^{N}_{max,\mathrm{diaz}}$ &amp;     2.5 &amp;             mg Chl / mmol &amp;                            Maximum $\theta^N$ (Chl / N) for diazotrophs \\
+    $\alpha^{Chl}_{\mathrm{sp}}$ &amp;    0.39 &amp; mmol m$^2$/(mg Chl W day) &amp;              Initial slope of P\_I curve (GD98) for small phytoplankton \\
+  $\alpha^{Chl}_{\mathrm{diat}}$ &amp;    0.28 &amp; mmol m$^2$/(mg Chl W day) &amp;                          Initial slope of P\_I curve (GD98) for diatoms \\
+  $\alpha^{Chl}_{\mathrm{diaz}}$ &amp;    0.39 &amp; mmol m$^2$/(mg Chl W day) &amp;                      Initial slope of P\_I curve (GD98) for diazotrophs \\
+       $K_\mathrm{sp}^{\ce{Fe}}$ &amp; 3.0e-05 &amp;                mmol/m$^3$ &amp;                     Fe uptake half-sat constant for small phytoplankton \\
+     $K_\mathrm{diat}^{\ce{Fe}}$ &amp; 7.0e-05 &amp;                mmol/m$^3$ &amp;                                 Fe uptake half-sat constant for diatoms \\
+     $K_\mathrm{diaz}^{\ce{Fe}}$ &amp; 4.5e-05 &amp;                mmol/m$^3$ &amp;                             Fe uptake half-sat constant for diazotrophs \\
+      $K_\mathrm{sp}^{\ce{NO3}}$ &amp;    0.25 &amp;                mmol/m$^3$ &amp;                    NO3 uptake half-sat constant for small phytoplankton \\
+    $K_\mathrm{diat}^{\ce{NO3}}$ &amp;     0.5 &amp;                mmol/m$^3$ &amp;                                NO3 uptake half-sat constant for diatoms \\
+    $K_\mathrm{diaz}^{\ce{NO3}}$ &amp;     2.0 &amp;                mmol/m$^3$ &amp;                            NO3 uptake half-sat constant for diazotrophs \\
+      $K_\mathrm{sp}^{\ce{NH4}}$ &amp;    0.01 &amp;                mmol/m$^3$ &amp;                    NH4 uptake half-sat constant for small phytoplankton \\
+    $K_\mathrm{diat}^{\ce{NH4}}$ &amp;    0.05 &amp;                mmol/m$^3$ &amp;                                NH4 uptake half-sat constant for diatoms \\
+    $K_\mathrm{diaz}^{\ce{NH4}}$ &amp;     0.2 &amp;                mmol/m$^3$ &amp;                            NH4 uptake half-sat constant for diazotrophs \\
+      $K_\mathrm{sp}^{\ce{PO4}}$ &amp;    0.01 &amp;                mmol/m$^3$ &amp;                    PO4 uptake half-sat constant for small phytoplankton \\
+    $K_\mathrm{diat}^{\ce{PO4}}$ &amp;    0.05 &amp;                mmol/m$^3$ &amp;                                PO4 uptake half-sat constant for diatoms \\
+    $K_\mathrm{diaz}^{\ce{PO4}}$ &amp;   0.015 &amp;                mmol/m$^3$ &amp;                            PO4 uptake half-sat constant for diazotrophs \\
+      $K_\mathrm{sp}^{\ce{DOP}}$ &amp;     0.3 &amp;                mmol/m$^3$ &amp;                    DOP uptake half-sat constant for small phytoplankton \\
+    $K_\mathrm{diat}^{\ce{DOP}}$ &amp;     0.5 &amp;                mmol/m$^3$ &amp;                                DOP uptake half-sat constant for diatoms \\
+    $K_\mathrm{diaz}^{\ce{DOP}}$ &amp;   0.075 &amp;                mmol/m$^3$ &amp;                            DOP uptake half-sat constant for diazotrophs \\
+   $K_\mathrm{diat}^{\ce{SiO3}}$ &amp;     0.7 &amp;                mmol/m$^3$ &amp;                               SiO3 uptake half-sat constant for diatoms \\
+           $a_\mathrm{sp}^{min}$ &amp;    0.01 &amp;                  d$^{-1}$ &amp;                                Minimum agg rate for small phytoplankton \\
+         $a_\mathrm{diat}^{min}$ &amp;    0.02 &amp;                  d$^{-1}$ &amp;                                            Minimum agg rate for diatoms \\
+         $a_\mathrm{diaz}^{min}$ &amp;    0.01 &amp;                  d$^{-1}$ &amp;                                        Minimum agg rate for diazotrophs \\
+           $a_\mathrm{sp}^{max}$ &amp;     0.5 &amp;                  d$^{-1}$ &amp;                                Maximum agg rate for small phytoplankton \\
+         $a_\mathrm{diat}^{max}$ &amp;     0.5 &amp;                  d$^{-1}$ &amp;                                            Maximum agg rate for diatoms \\
+         $a_\mathrm{diaz}^{max}$ &amp;     0.5 &amp;                  d$^{-1}$ &amp;                                        Maximum agg rate for diazotrophs \\
+           $g_\mathrm{sp}^{max}$ &amp;     3.3 &amp;                  d$^{-1}$ &amp;                            Maximum grazing rate for small phytoplankton \\
+         $g_\mathrm{diat}^{max}$ &amp;    3.15 &amp;                  d$^{-1}$ &amp;                                        Maximum grazing rate for diatoms \\
+         $g_\mathrm{diaz}^{max}$ &amp;     3.3 &amp;                  d$^{-1}$ &amp;                                    Maximum grazing rate for diazotrophs \\
+                       $K_i^{P}$ &amp;     1.2 &amp;                mmol/m$^3$ &amp;      zooplankton grazing half saturation constant for all phytoplankton \\
+            $\gamma_\mathrm{sp}$ &amp;     0.3 &amp;                  unitless &amp; Gross growth efficiency coefficient for grazing for small phytoplankton \\
+          $\gamma_\mathrm{diat}$ &amp;    0.25 &amp;                  unitless &amp;             Gross growth efficiency coefficient for grazing for diatoms \\
+          $\gamma_\mathrm{diaz}$ &amp;     0.3 &amp;                  unitless &amp;         Gross growth efficiency coefficient for grazing for diazotrophs \\
+                           $m_Z$ &amp;     0.1 &amp;                  d$^{-1}$ &amp;                                                   Linear mortality rate \\
+                           $a_Z$ &amp;     0.4 &amp;   d$^{-1}$ / (mmol/m$^3$) &amp;                                                Quadratic mortality rate \\
+\bottomrule
+\end{tabular}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remineralization Table</span>
+<span class="c1"># Remineralization Depth | Remineralization Value</span>
+<span class="c1"># parm_scalelen_z(N)     | parm_scalelen_vals(N)</span>
+<span class="n">table2_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">table2_dict</span><span class="p">[</span><span class="s1">&#39;depth (m)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;POC&#39;</span><span class="p">,</span> <span class="s1">&#39;SiO2&#39;</span><span class="p">,</span> <span class="s1">&#39;CaCO3&#39;</span><span class="p">]:</span>
+    <span class="n">table2_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">table2_dict</span><span class="p">[</span><span class="s1">&#39;depth (m)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">MARBL_settings</span><span class="o">.</span><span class="n">settings_dict</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;parm_scalelen_z(</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]))</span><span class="o">//</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">scalefactor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">MARBL_settings</span><span class="o">.</span><span class="n">settings_dict</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;parm_scalelen_vals(</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;POC&#39;</span><span class="p">,</span> <span class="s1">&#39;SiO2&#39;</span><span class="p">,</span> <span class="s1">&#39;CaCO3&#39;</span><span class="p">]:</span>
+        <span class="n">key2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;parm_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_diss&quot;</span>
+        <span class="n">table2_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">scalefactor</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">MARBL_settings</span><span class="o">.</span><span class="n">settings_dict</span><span class="p">[</span><span class="n">key2</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">])</span><span class="o">/</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table2_dict</span><span class="p">)</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;depth (m)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>POC</th>
+      <th>SiO2</th>
+      <th>CaCO3</th>
+    </tr>
+    <tr>
+      <th>depth (m)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>650</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <th>250</th>
+      <td>360</td>
+      <td>2340</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>500</th>
+      <td>470</td>
+      <td>3055</td>
+      <td>2350</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>480</td>
+      <td>3120</td>
+      <td>2400</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># caption:</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Remineralization length scales (in meters) for sinking particulate matter as a function of depth.</span>
+<span class="sd">The 100~m value is also used above that depth, and the 1000~m value is also used at deeper depths;</span>
+<span class="sd">for all values in between, the length scale is linearly interpolated from the values in the table.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{tabular}{rrrr}
+\toprule
+ depth (m) &amp;  POC &amp;  SiO2 &amp;  CaCO3 \\
+\midrule
+       100 &amp;  100 &amp;   650 &amp;    500 \\
+       250 &amp;  360 &amp;  2340 &amp;   1800 \\
+       500 &amp;  470 &amp;  3055 &amp;   2350 \\
+      1000 &amp;  480 &amp;  3120 &amp;   2400 \\
+\bottomrule
+\end{tabular}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-miniconda3-cesm2-marbl-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-miniconda3-cesm2-marbl-py",
+            path: "./tables"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-miniconda3-cesm2-marbl-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

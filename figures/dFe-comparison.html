@@ -1,0 +1,1541 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; CESM2 MARBL</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Transient CO2" href="transient-fgco2.html" />
+    <link rel="prev" title="Nutrient Cycle (Ncycle)" href="Ncycle-plots.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/marbl_photo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CESM2 MARBL</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Observations Description
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/obs_datasets.html">
+   Observational Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model Observation Comparison
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tables/Global_Flux_Table.html">
+   Generating a Table of Global Fluxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mld.html">
+   Mixed Layer Depth (MLD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ventilation.html">
+   Ventilation tracers: CFCs, 14C, Cant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nutrient-plots.html">
+   Nutrient Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nutrient-limitation.html">
+   Nutrient Limitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="biological-pump.html">
+   Biological Pump
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="co2-flux.html">
+   CO
+   <sub>
+    2
+   </sub>
+   Flux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Ncycle-plots.html">
+   Nutrient Cycle (Ncycle)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transient-fgco2.html">
+   Transient CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transient-biological-pump.html">
+   Transient Biological Pump
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusions.html">
+   Conclusions and Future Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/figures/dFe-comparison.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/figures/dFe-comparison.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">colors</span>
+<span class="kn">import</span> <span class="nn">cmocean</span>
+
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+
+<span class="kn">import</span> <span class="nn">xpersist</span> <span class="k">as</span> <span class="nn">xp</span>
+<span class="n">cache_dir</span> <span class="o">=</span> <span class="s1">&#39;/glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/3d_fields&#39;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">)):</span>
+    <span class="n">xp</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;cache_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache_dir</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CESMDATAROOT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/glade/scratch/mclong/inputdata&#39;</span>
+<span class="kn">import</span> <span class="nn">pop_tools</span>
+
+
+<span class="kn">import</span> <span class="nn">climo_utils</span> <span class="k">as</span> <span class="nn">cu</span>
+<span class="kn">import</span> <span class="nn">utils</span>
+<span class="kn">import</span> <span class="nn">discrete_obs</span> 
+
+<span class="kn">import</span> <span class="nn">plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intake</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_esm_datastore</span><span class="p">(</span><span class="s1">&#39;data/campaign-cesm2-cmip6-timeseries.json&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="s1">&#39;ocn&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="s1">&#39;pop.h&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">variable</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">variables</span> <span class="k">if</span> <span class="s1">&#39;Fe&#39;</span> <span class="ow">in</span> <span class="n">v</span> <span class="ow">or</span> <span class="s1">&#39;iron&#39;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;sed&#39;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;dust&#39;</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ATM_COARSE_DUST_FLUX_CPL&#39;,
+ &#39;ATM_FINE_DUST_FLUX_CPL&#39;,
+ &#39;Fe&#39;,
+ &#39;Fe_RIV_FLUX&#39;,
+ &#39;Fe_scavenge&#39;,
+ &#39;Fe_scavenge_rate&#39;,
+ &#39;Fefree&#39;,
+ &#39;IRON_FLUX&#39;,
+ &#39;Jint_100m_Fe&#39;,
+ &#39;P_iron_FLUX_100m&#39;,
+ &#39;P_iron_FLUX_IN&#39;,
+ &#39;P_iron_PROD&#39;,
+ &#39;P_iron_REMIN&#39;,
+ &#39;SEAICE_DUST_FLUX_CPL&#39;,
+ &#39;SedDenitrif&#39;,
+ &#39;bsiToSed&#39;,
+ &#39;calcToSed&#39;,
+ &#39;calcToSed_ALT_CO2&#39;,
+ &#39;diatFe&#39;,
+ &#39;diat_Fe_lim_Cweight_avg_100m&#39;,
+ &#39;diat_Fe_lim_surf&#39;,
+ &#39;diazFe&#39;,
+ &#39;diaz_Fe_lim_Cweight_avg_100m&#39;,
+ &#39;diaz_Fe_lim_surf&#39;,
+ &#39;dustToSed&#39;,
+ &#39;dust_FLUX_IN&#39;,
+ &#39;dust_REMIN&#39;,
+ &#39;pfeToSed&#39;,
+ &#39;photoFe_diat&#39;,
+ &#39;photoFe_diaz&#39;,
+ &#39;photoFe_sp&#39;,
+ &#39;pocToSed&#39;,
+ &#39;ponToSed&#39;,
+ &#39;popToSed&#39;,
+ &#39;spFe&#39;,
+ &#39;sp_Fe_lim_Cweight_avg_100m&#39;,
+ &#39;sp_Fe_lim_surf&#39;,
+ &#39;tend_zint_100m_Fe&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_ClusterClient</span><span class="p">()</span>
+<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1">#adapt(minimum_jobs=0, maximum_jobs=24)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/mclong/miniconda3/envs/cesm2-marbl/lib/python3.7/site-packages/distributed/dashboard/core.py:79: UserWarning: 
+Port 8787 is already in use. 
+Perhaps you already have a cluster running?
+Hosting the diagnostics dashboard on a random port instead.
+  warnings.warn(&quot;\n&quot; + msg)
+</pre></div>
+</div>
+<div class="output text_html"><table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://10.12.206.16:40458</li>
+  <li><b>Dashboard: </b><a href='https://jupyterhub.hpc.ucar.edu/stable/user/mclong/proxy/32770/status' target='_blank'>https://jupyterhub.hpc.ucar.edu/stable/user/mclong/proxy/32770/status</a>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>0</li>
+  <li><b>Cores: </b>0</li>
+  <li><b>Memory: </b>0 B</li>
+</ul>
+</td>
+</tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_grid</span> <span class="o">=</span> <span class="n">pop_tools</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(</span><span class="s1">&#39;POP_gx1v7&#39;</span><span class="p">)</span>
+<span class="n">masked_area</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">TAREA</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_grid</span><span class="o">.</span><span class="n">REGION_MASK</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)</span>
+<span class="n">masked_area</span> <span class="c1">#.plot()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/mclong/miniconda3/envs/cesm2-marbl/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:365: NumbaWarning: The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 6103. The TBB threading layer is disabled.
+  warnings.warn(problem)
+</pre></div>
+</div>
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;TAREA&#x27; (region: 1, nlat: 384, nlon: 320)&gt;
+array([[[0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [1.52530781e+13, 1.52530781e+13, 1.52530781e+13, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        ...,
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00]]])
+Dimensions without coordinates: region, nlat, nlon
+Attributes:
+    units:        cm^2
+    long_name:    area of T cells
+    coordinates:  TLONG TLAT</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'TAREA'</div><ul class='xr-dim-list'><li><span>region</span>: 1</li><li><span>nlat</span>: 384</li><li><span>nlon</span>: 320</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c181d73e-2995-4119-b34b-1677eb621cbb' class='xr-array-in' type='checkbox' checked><label for='section-c181d73e-2995-4119-b34b-1677eb621cbb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0</span></div><div class='xr-array-data'><pre>array([[[0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [1.52530781e+13, 1.52530781e+13, 1.52530781e+13, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        ...,
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00],
+        [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+         0.00000000e+00, 0.00000000e+00, 0.00000000e+00]]])</pre></div></div></li><li class='xr-section-item'><input id='section-603472fb-9d51-4461-9558-a2624aaa8330' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-603472fb-9d51-4461-9558-a2624aaa8330' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-909b81de-ed0a-4c2b-b1bd-8081b9549c00' class='xr-section-summary-in' type='checkbox'  checked><label for='section-909b81de-ed0a-4c2b-b1bd-8081b9549c00' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>cm^2</dd><dt><span>long_name :</span></dt><dd>area of T cells</dd><dt><span>coordinates :</span></dt><dd>TLONG TLAT</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dust_to_Fe</span></code>: conversion of dust to iron (nmol Fe/g Dust)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dust</span> <span class="n">remin</span> <span class="n">gDust</span> <span class="o">=</span> <span class="mf">0.035</span> <span class="n">gFe</span>       <span class="n">mol</span> <span class="n">Fe</span>     <span class="mf">1e3</span> <span class="n">mmolFe</span>
+                    <span class="o">---------</span> <span class="o">*</span>  <span class="o">-----------</span> <span class="o">*</span> <span class="o">----------</span>
+                      <span class="n">gDust</span>      <span class="n">molw_Fe</span> <span class="n">gFe</span>      <span class="n">molFe</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">molw_Fe</span> <span class="o">=</span>  <span class="mf">55.845</span>
+<span class="n">dust_to_Fe_mmol</span> <span class="o">=</span> <span class="mf">0.035</span> <span class="o">/</span> <span class="n">molw_Fe</span> <span class="o">*</span> <span class="mf">1.0e3</span>
+<span class="n">dust_to_Fe_mmol</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6267347121497001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percm2_to_perm2</span> <span class="o">=</span> <span class="mf">1e4</span>
+<span class="n">pers_to_peryr</span> <span class="o">=</span> <span class="mf">86400.</span> <span class="o">*</span> <span class="mf">365.</span>
+<span class="n">nmolcm3_to_nM</span> <span class="o">=</span> <span class="mf">1e3</span>
+<span class="n">nmolcm2s_to_mmolm2yr</span> <span class="o">=</span> <span class="mf">1e-9</span> <span class="o">*</span> <span class="mf">1e3</span> <span class="o">*</span> <span class="mf">1e4</span> <span class="o">*</span> <span class="mi">86400</span> <span class="o">*</span> <span class="mf">365.</span>
+<span class="n">µmolm2d_to_mmolm2yr</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="mf">365.</span>
+<span class="n">mmols_to_Gmolyr</span> <span class="o">=</span> <span class="mf">1e-12</span> <span class="o">*</span> <span class="mf">86400.</span> <span class="o">*</span> <span class="mf">365.</span>
+<span class="n">nmols_to_Gmolyr</span> <span class="o">=</span> <span class="mf">1e-18</span> <span class="o">*</span> <span class="mf">86400.</span> <span class="o">*</span> <span class="mf">365.</span>
+
+<span class="n">time_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1990-01-15&quot;</span><span class="p">,</span> <span class="s2">&quot;2015-01-15&quot;</span><span class="p">)</span>
+<span class="n">varlist</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Fe&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;IRON_FLUX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Fe_RIV_FLUX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pfeToSed&#39;</span><span class="p">,</span>   
+    <span class="s1">&#39;dust_REMIN&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">ds_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">varlist</span><span class="p">:</span>
+    <span class="n">xp_func</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">persist_ds</span><span class="p">(</span><span class="n">cu</span><span class="o">.</span><span class="n">read_CESM_var</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">trust_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
+    <span class="n">ds_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xp_func</span><span class="p">(</span>
+        <span class="n">time_slice</span><span class="p">,</span> 
+        <span class="n">variable</span><span class="p">,</span> 
+        <span class="n">mean_dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;member_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">],</span> 
+    <span class="p">))</span>
+    
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ds_list</span><span class="p">)</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;dz&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">dz</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;z_t&#39;</span><span class="p">)</span> <span class="c1"># drop z_t because precision issues cause diffs</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;TAREA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_grid</span><span class="o">.</span><span class="n">TAREA</span>
+
+<span class="c1"># add data from forcing files</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">ds</span><span class="p">,</span> <span class="n">cu</span><span class="o">.</span><span class="n">get_fesedflux_forcing</span><span class="p">(),))</span>
+
+<span class="c1"># compute dust remin component </span>
+<span class="k">assert</span> <span class="n">ds</span><span class="o">.</span><span class="n">dust_REMIN</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;g/cm^3/s&#39;</span>
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;Fe_from_dust&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">dust_REMIN</span> <span class="o">*</span> <span class="n">dust_to_Fe_mmol</span> <span class="o">*</span> <span class="n">ds</span><span class="o">.</span><span class="n">dz</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;z_t&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">percm2_to_perm2</span> <span class="o">*</span> <span class="n">pers_to_peryr</span> 
+<span class="n">ds</span><span class="o">.</span><span class="n">Fe_from_dust</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mmol m$^{-2}$ yr$^{-1}$&#39;</span>
+
+<span class="n">ds</span><span class="p">[</span><span class="s1">&#39;Fe_aeolian_input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">Fe_from_dust</span> <span class="o">+</span> <span class="n">ds</span><span class="o">.</span><span class="n">IRON_FLUX</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">Fe_aeolian_input</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mmol m$^{-2}$ yr$^{-1}$&#39;</span>
+
+<span class="c1"># compute global integrals</span>
+<span class="n">convert_glb_Gmolyr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">IRON_FLUX</span><span class="o">=</span><span class="n">mmols_to_Gmolyr</span> <span class="o">*</span> <span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">Fe_from_dust</span><span class="o">=</span><span class="mf">1e-12</span> <span class="o">*</span> <span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">pfeToSed</span><span class="o">=-</span><span class="mf">1.</span> <span class="o">*</span> <span class="n">nmols_to_Gmolyr</span><span class="p">,</span>
+    <span class="n">Fe_ventflux</span><span class="o">=</span><span class="mf">1e-12</span> <span class="o">*</span> <span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">Fe_sedflux</span><span class="o">=</span><span class="mf">1e-12</span> <span class="o">*</span> <span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">Fe_RIV_FLUX</span><span class="o">=</span><span class="n">nmols_to_Gmolyr</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ds_glb</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">convert_glb_Gmolyr</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">ds_glb</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">masked_area</span> <span class="o">*</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="s1">&#39;nlat&#39;</span><span class="p">,</span> <span class="s1">&#39;nlon&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">convert_glb_Gmolyr</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+    <span class="n">ds_glb</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Gmol yr$^{-1}$&#39;</span>
+    
+    
+<span class="n">global_Fe_inv</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">Fe</span> <span class="o">*</span> <span class="n">ds</span><span class="o">.</span><span class="n">TAREA</span> <span class="o">*</span> <span class="n">ds</span><span class="o">.</span><span class="n">dz</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e-18</span>
+<span class="n">global_Fe_inv</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Gmol&#39;</span>
+    
+<span class="c1"># convert to nice units    </span>
+<span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Fe&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_RIV_FLUX&#39;</span><span class="p">,</span> <span class="s1">&#39;pfeToSed&#39;</span><span class="p">,</span> <span class="s1">&#39;IRON_FLUX&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mmol/m^3&#39;</span><span class="p">:</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="n">nmolcm3_to_nM</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;nM&#39;</span>
+    
+        <span class="k">elif</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;nmol/cm^2/s&#39;</span><span class="p">,</span> <span class="s1">&#39;mmol/m^3 cm/s&#39;</span><span class="p">]:</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="n">nmolcm2s_to_mmolm2yr</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mmol m$^{-2}$ yr$^{-1}$&#39;</span>        
+        
+        <span class="k">elif</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;mmol/m^2/s&#39;</span><span class="p">]:</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="mf">86400.</span> <span class="o">*</span> <span class="mf">365.</span> <span class="c1">#* 1e4</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mmol m$^{-2}$ yr$^{-1}$&#39;</span>        
+    
+           
+<span class="c1"># make dataset map-plottable</span>
+<span class="n">dsp</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">pop_add_cyclic</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="n">dsp</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/3d_fields/Fe.nc
+assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/3d_fields/IRON_FLUX.nc
+assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/3d_fields/Fe_RIV_FLUX.nc
+assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/3d_fields/pfeToSed.nc
+assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/3d_fields/dust_REMIN.nc
+xarray.Dataset {
+dimensions:
+	nlat = 384 ;
+	nlon = 321 ;
+	z_t = 60 ;
+
+variables:
+	float32 z_t(z_t) ;
+	float64 TLAT(nlat, nlon) ;
+	float64 TLONG(nlat, nlon) ;
+	float32 Fe(z_t, nlat, nlon) ;
+		Fe:long_name = Dissolved Inorganic Iron ;
+		Fe:units = nM ;
+		Fe:grid_loc = 3111 ;
+		Fe:cell_methods = time: mean ;
+	float32 IRON_FLUX(nlat, nlon) ;
+		IRON_FLUX:long_name = Atmospheric Iron Flux ;
+		IRON_FLUX:units = mmol m$^{-2}$ yr$^{-1}$ ;
+		IRON_FLUX:grid_loc = 2110 ;
+		IRON_FLUX:cell_methods = time: mean ;
+	float32 Fe_RIV_FLUX(nlat, nlon) ;
+		Fe_RIV_FLUX:long_name = Dissolved Inorganic Iron Riverine Flux ;
+		Fe_RIV_FLUX:units = mmol m$^{-2}$ yr$^{-1}$ ;
+		Fe_RIV_FLUX:grid_loc = 2110 ;
+		Fe_RIV_FLUX:cell_methods = time: mean ;
+	float32 pfeToSed(nlat, nlon) ;
+		pfeToSed:long_name = pFe Flux to Sediments ;
+		pfeToSed:units = mmol m$^{-2}$ yr$^{-1}$ ;
+		pfeToSed:grid_loc = 2110 ;
+		pfeToSed:cell_methods = time: mean ;
+	float32 dust_REMIN(z_t, nlat, nlon) ;
+		dust_REMIN:long_name = Dust Remineralization ;
+		dust_REMIN:units = g/cm^3/s ;
+		dust_REMIN:grid_loc = 3111 ;
+		dust_REMIN:cell_methods = time: mean ;
+	float64 dz(z_t) ;
+		dz:units = cm ;
+		dz:long_name = thickness of layer k ;
+	float64 TAREA(nlat, nlon) ;
+		TAREA:units = cm^2 ;
+		TAREA:long_name = area of T cells ;
+		TAREA:coordinates = TLONG TLAT ;
+	float32 Fe_ventflux(nlat, nlon) ;
+		Fe_ventflux:units = mmol m$^{-2}$ yr$^{-1}$ ;
+	float32 Fe_sedflux(nlat, nlon) ;
+		Fe_sedflux:units = mmol m$^{-2}$ yr$^{-1}$ ;
+	float64 Fe_from_dust(nlat, nlon) ;
+		Fe_from_dust:units = mmol m$^{-2}$ yr$^{-1}$ ;
+	float64 Fe_aeolian_input(nlat, nlon) ;
+		Fe_aeolian_input:units = mmol m$^{-2}$ yr$^{-1}$ ;
+
+// global attributes:
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_glb</span> <span class="o">=</span> <span class="n">ds_glb</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1">#.sum(axis=1)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global imbalance: </span><span class="si">{</span><span class="n">df_glb</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> Gmol/yr&#39;</span><span class="p">)</span>
+<span class="n">df_glb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global imbalance: -0.032 Gmol/yr
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IRON_FLUX</th>
+      <th>Fe_from_dust</th>
+      <th>pfeToSed</th>
+      <th>Fe_ventflux</th>
+      <th>Fe_sedflux</th>
+      <th>Fe_RIV_FLUX</th>
+    </tr>
+    <tr>
+      <th>region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8.05681</td>
+      <td>5.566933</td>
+      <td>-38.614945</td>
+      <td>4.905846</td>
+      <td>19.681022</td>
+      <td>0.372556</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">cluster</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">client</span>
+<span class="k">del</span> <span class="n">cluster</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+
+<span class="n">nvar</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds_glb</span><span class="o">.</span><span class="n">data_vars</span><span class="p">)</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">nvar</span><span class="p">))</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nvar</span><span class="o">/</span><span class="n">nrow</span><span class="p">)</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nvar</span><span class="o">%</span><span class="k">nrow</span>)
+<span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> 
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">figsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span> <span class="n">figsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">nrow</span><span class="p">),</span>
+    <span class="n">squeeze</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ds_glb</span><span class="o">.</span><span class="n">data_vars</span><span class="p">):</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">ds</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">10.</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dFe-comparison_11_0.png" src="../_images/dFe-comparison_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">Fe_aeolian_input</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Aeolian deposition: </span><span class="si">{</span><span class="n">df_glb</span><span class="p">[</span><span class="s2">&quot;IRON_FLUX&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_glb</span><span class="p">[</span><span class="s2">&quot;Fe_from_dust&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> Gmol yr$^</span><span class="se">{{</span><span class="s1">-1</span><span class="se">}}</span><span class="s1">$&#39;</span><span class="p">,</span>
+    <span class="n">Fe_sedflux</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Sediment input: </span><span class="si">{</span><span class="n">df_glb</span><span class="p">[</span><span class="s2">&quot;Fe_sedflux&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> Gmol yr$^</span><span class="se">{{</span><span class="s1">-1</span><span class="se">}}</span><span class="s1">$&#39;</span><span class="p">,</span>
+    <span class="n">Fe_ventflux</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Geothermal input: </span><span class="si">{</span><span class="n">df_glb</span><span class="p">[</span><span class="s2">&quot;Fe_ventflux&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> Gmol yr$^</span><span class="se">{{</span><span class="s1">-1</span><span class="se">}}</span><span class="s1">$&#39;</span><span class="p">,</span>
+    <span class="n">pfeToSed</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Loss to sediment: </span><span class="si">{</span><span class="n">df_glb</span><span class="p">[</span><span class="s2">&quot;pfeToSed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> Gmol yr$^</span><span class="se">{{</span><span class="s1">-1</span><span class="se">}}</span><span class="s1">$&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">titles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Fe_aeolian_input&#39;: &#39;Aeolian deposition: 13.62 Gmol yr$^{-1}$&#39;,
+ &#39;Fe_sedflux&#39;: &#39;Sediment input: 19.68 Gmol yr$^{-1}$&#39;,
+ &#39;Fe_ventflux&#39;: &#39;Geothermal input: 4.91 Gmol yr$^{-1}$&#39;,
+ &#39;pfeToSed&#39;: &#39;Loss to sediment: -38.61 Gmol yr$^{-1}$&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Fe_aeolian_input&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_sedflux&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe_ventflux&#39;</span><span class="p">,</span> <span class="s1">&#39;pfeToSed&#39;</span><span class="p">]</span>
+
+<span class="n">log_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">):</span>
+    <span class="n">log_levels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">])</span> <span class="o">*</span> <span class="n">scale</span><span class="p">))</span>
+    
+<span class="n">levels</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">log_levels</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">}</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">prj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mf">305.0</span><span class="p">)</span>
+
+<span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> 
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncol</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="n">width_ratios</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">),</span>
+    <span class="n">wspace</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> 
+    <span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">axs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="n">caxs</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncol</span><span class="p">)):</span>    
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">prj</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">cmap_field</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span>
+
+
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fields</span><span class="p">):</span>
+    
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">axs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+   
+    <span class="n">cf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">dsp</span><span class="o">.</span><span class="n">TLONG</span><span class="p">,</span><span class="n">dsp</span><span class="o">.</span><span class="n">TLAT</span><span class="p">,</span> <span class="n">dsp</span><span class="p">[</span><span class="n">field</span><span class="p">],</span>
+        <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">[</span><span class="n">field</span><span class="p">],</span>
+        <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_field</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">field</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="n">cmap_field</span><span class="o">.</span><span class="n">N</span><span class="p">),</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="n">land</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span>
+        <span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span>
+            <span class="s1">&#39;physical&#39;</span><span class="p">,</span><span class="s1">&#39;land&#39;</span><span class="p">,</span><span class="s1">&#39;110m&#39;</span><span class="p">,</span>
+            <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;face&#39;</span><span class="p">,</span>
+            <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>  
+                             
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">field</span><span class="p">])</span> <span class="c1">#dsp[field].attrs[&#39;title_str&#39;])</span>
+    
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">log_levels</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;units&#39;</span> <span class="ow">in</span> <span class="n">dsp</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dsp</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">])</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s1">g</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">log_levels</span><span class="p">])</span>
+    
+<span class="n">utils</span><span class="o">.</span><span class="n">label_plots</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()],</span> <span class="n">xoff</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">yoff</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>       
+<span class="n">utils</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;iron-budget-maps.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dFe-comparison_13_0.png" src="../_images/dFe-comparison_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Southern Ocean&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;Atlantic&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> 
+    <span class="s1">&#39;Indian&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s1">&#39;Pacific&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>     
+<span class="p">}</span>
+<span class="n">ds_grid</span><span class="o">.</span><span class="n">REGION_MASK</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vmax</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x2b9b93561bd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/dFe-comparison_14_1.png" src="../_images/dFe-comparison_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">discrete_obs</span><span class="o">.</span><span class="n">open_datastream</span><span class="p">(</span><span class="s1">&#39;dFe&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">obs_stream</span><span class="o">.</span><span class="n">add_model_field</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">Fe</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">obs_stream</span><span class="o">.</span><span class="n">add_model_field</span><span class="p">(</span><span class="n">ds_grid</span><span class="o">.</span><span class="n">REGION_MASK</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/mclong/p/cesm2-marbl/notebooks/discrete_obs/tools.py:75: UserWarning: registration of accessor &lt;class &#39;discrete_obs.tools.obs_datastream&#39;&gt; under name &#39;obs_stream&#39; for type &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; is overriding a preexisting attribute with the same name.
+  @pd.api.extensions.register_dataframe_accessor(&#39;obs_stream&#39;)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>depth</th>
+      <th>dFe_obs</th>
+      <th>Fe</th>
+      <th>REGION_MASK</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>210.010</td>
+      <td>-16.0018</td>
+      <td>20.0</td>
+      <td>0.540000</td>
+      <td>0.065604</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>210.010</td>
+      <td>-16.0018</td>
+      <td>35.0</td>
+      <td>0.440000</td>
+      <td>0.065562</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>210.010</td>
+      <td>-16.0019</td>
+      <td>50.0</td>
+      <td>0.480000</td>
+      <td>0.066896</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>210.010</td>
+      <td>-16.0019</td>
+      <td>80.0</td>
+      <td>0.400000</td>
+      <td>0.081158</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>210.010</td>
+      <td>-16.0020</td>
+      <td>100.0</td>
+      <td>0.390000</td>
+      <td>0.096782</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>27777</th>
+      <td>160.051</td>
+      <td>47.0032</td>
+      <td>3929.6</td>
+      <td>0.825681</td>
+      <td>0.850402</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>27778</th>
+      <td>160.051</td>
+      <td>47.0032</td>
+      <td>3929.8</td>
+      <td>0.902248</td>
+      <td>0.850392</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>27779</th>
+      <td>160.051</td>
+      <td>47.0032</td>
+      <td>4900.4</td>
+      <td>0.555630</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>27780</th>
+      <td>160.051</td>
+      <td>47.0032</td>
+      <td>4900.9</td>
+      <td>0.621851</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>27781</th>
+      <td>160.051</td>
+      <td>47.0032</td>
+      <td>5210.1</td>
+      <td>0.573220</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>27782 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dFe_obs</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Fe</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;CESM2 dFe [nM]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Obs dFe [nM]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2b9cbabdfa50&gt;]
+</pre></div>
+</div>
+<img alt="../_images/dFe-comparison_16_1.png" src="../_images/dFe-comparison_16_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">canvas</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">use_gridspec</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.06</span><span class="p">)</span>
+
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">depth_ranges</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;–100m &lt; z&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">),</span>
+    <span class="s1">&#39;-500m &lt; z &lt; -100 m&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">100.</span><span class="p">,</span> <span class="mf">500.</span><span class="p">),</span>
+    <span class="s1">&#39;   z &lt; -500m&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">500.</span><span class="p">,</span> <span class="mf">1e36</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">depth_range</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">depth_ranges</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">depth_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">df</span><span class="o">.</span><span class="n">depth</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">depth</span> <span class="o">&lt;=</span> <span class="n">depth_range</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    
+    <span class="n">hist</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">df_sub</span><span class="o">.</span><span class="n">dFe_obs</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">hist</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Obs&#39;</span><span class="p">)</span>
+    
+    <span class="n">hist</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">df_sub</span><span class="o">.</span><span class="n">Fe</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">hist</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CESM2-MARBL&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+    <span class="n">ylm</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ylm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.12</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ylm</span><span class="p">),</span> <span class="n">key</span><span class="p">,</span> 
+            <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+           <span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of samples&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Dissolved iron concentration [nM]&#39;</span><span class="p">)</span>
+        
+<span class="n">utils</span><span class="o">.</span><span class="n">label_plots</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()],</span> <span class="n">xoff</span><span class="o">=-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">yoff</span><span class="o">=-</span><span class="mf">0.02</span><span class="p">)</span>               
+<span class="n">utils</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;iron-global-ocean-obs-PDF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dFe-comparison_17_0.png" src="../_images/dFe-comparison_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residence_time</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">global_Fe_inv</span> <span class="o">/</span> <span class="n">ds_glb</span><span class="o">.</span><span class="n">pfeToSed</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fe residence time: </span><span class="si">{</span><span class="n">residence_time</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> yr&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fe residence time: 28.33 yr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;Fe&#39;</span>
+
+<span class="n">levels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Fe&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]}</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">prj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mf">305.0</span><span class="p">)</span>
+
+<span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> 
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncol</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="n">width_ratios</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">),</span>
+    <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> 
+    <span class="n">hspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">axs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="n">caxs</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncol</span><span class="p">)):</span>    
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">prj</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">cmap_field</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span>
+
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">depth_range</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">depth_ranges</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">zslice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">depth_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">100.</span><span class="p">,</span> <span class="n">depth_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">100.</span><span class="p">)</span>
+
+            <span class="n">cf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+                <span class="n">dsp</span><span class="o">.</span><span class="n">TLONG</span><span class="p">,</span><span class="n">dsp</span><span class="o">.</span><span class="n">TLAT</span><span class="p">,</span> <span class="n">dsp</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">z_t</span><span class="o">=</span><span class="n">zslice</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;z_t&#39;</span><span class="p">),</span>
+                <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">[</span><span class="n">field</span><span class="p">],</span>
+                <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_field</span><span class="p">,</span>
+                <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">field</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="n">cmap_field</span><span class="o">.</span><span class="n">N</span><span class="p">),</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">depth_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">df</span><span class="o">.</span><span class="n">depth</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">depth</span> <span class="o">&lt;=</span> <span class="n">depth_range</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+            <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+                <span class="n">df_sub</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">df_sub</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df_sub</span><span class="o">.</span><span class="n">dFe_obs</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_field</span><span class="p">,</span>
+                <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">field</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="n">cmap_field</span><span class="o">.</span><span class="n">N</span><span class="p">),</span>
+                <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+            <span class="p">)</span>
+
+        <span class="n">land</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span>
+            <span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span>
+                <span class="s1">&#39;physical&#39;</span><span class="p">,</span><span class="s1">&#39;land&#39;</span><span class="p">,</span><span class="s1">&#39;110m&#39;</span><span class="p">,</span>
+                <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;face&#39;</span><span class="p">,</span>
+                <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>  
+
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">levels</span><span class="p">[</span><span class="s1">&#39;Fe&#39;</span><span class="p">])</span>
+<span class="k">if</span> <span class="s1">&#39;units&#39;</span> <span class="ow">in</span> <span class="n">dsp</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dsp</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">])</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s1">g</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;Fe&#39;</span><span class="p">]])</span>
+
+<span class="n">utils</span><span class="o">.</span><span class="n">subplot_col_labels</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="p">[</span><span class="s1">&#39;CESM2&#39;</span><span class="p">,</span> <span class="s1">&#39;Observations&#39;</span><span class="p">])</span>    
+<span class="n">utils</span><span class="o">.</span><span class="n">subplot_row_labels</span><span class="p">(</span><span class="n">axs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">depth_ranges</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">xoff</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    
+<span class="n">utils</span><span class="o">.</span><span class="n">label_plots</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()],</span> <span class="n">xoff</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">yoff</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>       
+<span class="n">utils</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;iron-concentration-maps.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dFe-comparison_19_0.png" src="../_images/dFe-comparison_19_0.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-miniconda3-cesm2-marbl-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-miniconda3-cesm2-marbl-py",
+            path: "./figures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-miniconda3-cesm2-marbl-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Ncycle-plots.html" title="previous page">Nutrient Cycle (Ncycle)</a>
+    <a class='right-next' id="next-link" href="transient-fgco2.html" title="next page">Transient CO<sub>2</sub></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

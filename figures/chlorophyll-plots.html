@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chlorophyll &#8212; CESM2 MARBL</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/marbl_photo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CESM2 MARBL</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Observations Description
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/obs_datasets.html">
+   Observational Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model Observation Comparison
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tables/Global_Flux_Table.html">
+   Generating a Table of Global Fluxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mld.html">
+   Mixed Layer Depth (MLD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ventilation.html">
+   Ventilation tracers: CFCs, 14C, Cant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nutrient-plots.html">
+   Nutrient Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nutrient-limitation.html">
+   Nutrient Limitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="biological-pump.html">
+   Biological Pump
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="co2-flux.html">
+   CO
+   <sub>
+    2
+   </sub>
+   Flux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Ncycle-plots.html">
+   Nutrient Cycle (Ncycle)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transient-fgco2.html">
+   Transient CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transient-biological-pump.html">
+   Transient Biological Pump
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusions.html">
+   Conclusions and Future Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/figures/chlorophyll-plots.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/figures/chlorophyll-plots.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hovmoller-plots-for-zonal-means-in-atlantic-and-pacific">
+   Hovmöller plots for zonal means in Atlantic and Pacific
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chlorophyll">
+<h1>Chlorophyll<a class="headerlink" href="#chlorophyll" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">import</span> <span class="nn">esmlab</span>
+<span class="kn">import</span> <span class="nn">pop_tools</span>
+
+<span class="kn">import</span> <span class="nn">ncar_jobqueue</span>
+<span class="kn">import</span> <span class="nn">dask_jobqueue</span>
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="kn">import</span> <span class="nn">utils</span>
+<span class="kn">import</span> <span class="nn">climo_utils</span> <span class="k">as</span> <span class="nn">cu</span>
+<span class="kn">import</span> <span class="nn">ann_avg_utils</span> <span class="k">as</span> <span class="nn">aau</span>
+<span class="n">units</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">get_pint_units</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">colors</span>
+
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cmocean</span>
+
+<span class="kn">import</span> <span class="nn">xpersist</span> <span class="k">as</span> <span class="nn">xp</span>
+<span class="c1"># Set up xperist cache</span>
+<span class="n">cache_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s1">&#39;glade&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;cgd&#39;</span><span class="p">,</span> <span class="s1">&#39;oce&#39;</span><span class="p">,</span> <span class="s1">&#39;projects&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm2-marbl&#39;</span><span class="p">,</span> <span class="s1">&#39;xpersist_cache&#39;</span><span class="p">,</span> <span class="s1">&#39;chl&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">)):</span>
+    <span class="n">xp</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;cache_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache_dir</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -a &quot;Mike Levy&quot; -d -iv -m -g -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Author: Mike Levy
+
+Compiler    : GCC 9.3.0
+OS          : Linux
+Release     : 3.10.0-1127.18.2.el7.x86_64
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 72
+Architecture: 64bit
+
+Hostname: crhtc62
+
+Git hash: 9345b6858001ba2f1e8274d90804f8af023054d5
+
+dask_jobqueue: 0.7.2
+pop_tools    : 2020.12.15
+esmlab       : 2019.4.27.post55
+xpersist     : 2020.4.30.post5
+ncar_jobqueue: 2021.2.10
+numpy        : 1.20.2
+xarray       : 0.17.0
+cmocean      : 2.0
+cartopy      : 0.18.0
+matplotlib   : 3.4.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">cluster</span>
+    <span class="n">client</span>
+<span class="k">except</span><span class="p">:</span> 
+    <span class="c1">#cluster = ncar_jobqueue.NCARCluster(project=&#39;P93300606&#39;)</span>
+    <span class="n">cluster</span> <span class="o">=</span> <span class="n">dask_jobqueue</span><span class="o">.</span><span class="n">PBSCluster</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">&#39;P93300606&#39;</span><span class="p">)</span>
+    <span class="n">cluster</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">minimum_jobs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum_jobs</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://10.12.206.63:37599</li>
+  <li><b>Dashboard: </b><a href='https://jupyterhub.hpc.ucar.edu/stable/user/mclong/proxy/{port}/status' target='_blank'>https://jupyterhub.hpc.ucar.edu/stable/user/mclong/proxy/{port}/status</a></li>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>0</li>
+  <li><b>Cores: </b>0</li>
+  <li><b>Memory: </b>0 B</li>
+</ul>
+</td>
+</tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="k">def</span> <span class="nf">_compute_ds_surf</span><span class="p">():</span>
+    <span class="n">PFTs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sp&#39;</span><span class="p">,</span> <span class="s1">&#39;diat&#39;</span><span class="p">,</span> <span class="s1">&#39;diaz&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">PFT</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">PFTs</span><span class="p">):</span>
+        <span class="c1"># Read CESM data</span>
+        <span class="n">variable</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">PFT</span><span class="si">}</span><span class="s1">Chl&#39;</span>
+        <span class="n">ds_tmp</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">read_CESM_var</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1990-01-15&quot;</span><span class="p">,</span> <span class="s2">&quot;2015-01-15&quot;</span><span class="p">),</span> <span class="n">variable</span><span class="p">,</span> <span class="n">mean_dims</span><span class="o">=</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">z_t_150m</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 1990 - 2014, inclusive</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ds_surf</span> <span class="o">=</span> <span class="n">ds_tmp</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">variable</span> <span class="p">:</span> <span class="s1">&#39;totChl&#39;</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ds_surf</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_surf</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ds_tmp</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">variable</span> <span class="p">:</span> <span class="s1">&#39;totChl&#39;</span><span class="p">})[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span>
+        <span class="k">del</span><span class="p">(</span><span class="n">ds_tmp</span><span class="p">)</span>
+    <span class="n">ds_surf</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Total Chlorophyll at Surface&#39;</span>
+    <span class="k">return</span> <span class="n">ds_surf</span>
+
+<span class="n">xp_func</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">persist_ds</span><span class="p">(</span><span class="n">_compute_ds_surf</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;totChl_monthly&#39;</span><span class="p">,</span> <span class="n">trust_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_surf</span> <span class="o">=</span> <span class="n">xp_func</span><span class="p">()</span>
+
+<span class="n">ds_surf_avg</span> <span class="o">=</span> <span class="n">ds_surf</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="c1"># unweighted (should be weighted by days per month)</span>
+<span class="n">da_surf_avg</span> <span class="o">=</span> <span class="n">ds_surf_avg</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span>
+
+<span class="n">ds_ann</span> <span class="o">=</span> <span class="n">ds_surf</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;dz&#39;</span><span class="p">,</span> <span class="s1">&#39;z_t&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_ann</span> <span class="o">=</span> <span class="n">ds_ann</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
+<span class="n">ds_ann</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
+<span class="n">ds_ann</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ds_DJF</span> <span class="o">=</span> <span class="n">ds_surf</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;dz&#39;</span><span class="p">,</span> <span class="s1">&#39;z_t&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_DJF</span> <span class="o">=</span> <span class="n">ds_DJF</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">month</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
+<span class="n">ds_DJF</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
+<span class="n">ds_DJF</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ds_JJA</span> <span class="o">=</span> <span class="n">ds_surf</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;dz&#39;</span><span class="p">,</span> <span class="s1">&#39;z_t&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_JJA</span> <span class="o">=</span> <span class="n">ds_JJA</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
+<span class="n">ds_JJA</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
+<span class="n">ds_JJA</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">del</span><span class="p">(</span><span class="n">tot_days_ann</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">del</span><span class="p">(</span><span class="n">tot_days_DJF</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">del</span><span class="p">(</span><span class="n">tot_days_JJA</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]):</span>
+    <span class="c1"># Annual</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tot_days_ann</span> <span class="o">=</span> <span class="n">tot_days_ann</span> <span class="o">+</span> <span class="n">days</span>
+        <span class="n">ds_surf_ann_avg</span> <span class="o">=</span> <span class="n">ds_surf_ann_avg</span> <span class="o">+</span> <span class="n">ds_ann</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">days</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">tot_days_ann</span> <span class="o">=</span> <span class="n">days</span>
+        <span class="n">ds_surf_ann_avg</span> <span class="o">=</span> <span class="n">ds_ann</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">days</span>
+    <span class="c1"># DJF</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tot_days_DJF</span> <span class="o">=</span> <span class="n">tot_days_DJF</span> <span class="o">+</span> <span class="n">days</span>
+            <span class="n">ds_surf_DJF_avg</span> <span class="o">=</span> <span class="n">ds_surf_DJF_avg</span> <span class="o">+</span> <span class="n">ds_DJF</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">days</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">tot_days_DJF</span> <span class="o">=</span> <span class="n">days</span>
+            <span class="n">ds_surf_DJF_avg</span> <span class="o">=</span> <span class="n">ds_DJF</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">days</span>
+    <span class="c1"># JJA</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tot_days_JJA</span> <span class="o">=</span> <span class="n">tot_days_JJA</span> <span class="o">+</span> <span class="n">days</span>
+            <span class="n">ds_surf_JJA_avg</span> <span class="o">=</span> <span class="n">ds_surf_JJA_avg</span> <span class="o">+</span> <span class="n">ds_JJA</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">days</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">tot_days_JJA</span> <span class="o">=</span> <span class="n">days</span>
+            <span class="n">ds_surf_JJA_avg</span> <span class="o">=</span> <span class="n">ds_JJA</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">days</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tot_days_ann</span><span class="si">}</span><span class="s1"> days in a year&#39;</span><span class="p">)</span>
+<span class="n">da_surf_ann_avg</span> <span class="o">=</span> <span class="n">ds_surf_ann_avg</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tot_days_ann</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tot_days_DJF</span><span class="si">}</span><span class="s1"> days in DJF&#39;</span><span class="p">)</span>
+<span class="n">da_surf_DJF_avg</span> <span class="o">=</span> <span class="n">ds_surf_DJF_avg</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tot_days_DJF</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tot_days_JJA</span><span class="si">}</span><span class="s1"> days in JJA&#39;</span><span class="p">)</span>
+<span class="n">da_surf_JJA_avg</span> <span class="o">=</span> <span class="n">ds_surf_JJA_avg</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tot_days_JJA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/chl/totChl_monthly.nc
+365 days in a year
+90 days in DJF
+92 days in JJA
+CPU times: user 2.84 s, sys: 697 ms, total: 3.54 s
+Wall time: 7.99 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_surf_obs_ann</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">read_obs</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;SeaWiFS&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;ann&#39;</span><span class="p">)[</span><span class="s1">&#39;chl_gsm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;totChl&#39;</span><span class="p">)</span>
+<span class="n">ds_surf_obs_DJF</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">read_obs</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;SeaWiFS&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;DJF&#39;</span><span class="p">)[</span><span class="s1">&#39;chl_gsm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;totChl&#39;</span><span class="p">)</span>
+<span class="n">ds_surf_obs_JJA</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">read_obs</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;SeaWiFS&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;JJA&#39;</span><span class="p">)[</span><span class="s1">&#39;chl_gsm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;totChl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_surf_plot</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span>
+    <span class="s1">&#39;totChl_DJF&#39;</span><span class="p">:</span> <span class="n">da_surf_DJF_avg</span><span class="p">,</span> 
+    <span class="s1">&#39;totChl_JJA&#39;</span><span class="p">:</span> <span class="n">da_surf_JJA_avg</span><span class="p">,</span> 
+    <span class="s1">&#39;totChl_DJF_obs&#39;</span><span class="p">:</span> <span class="n">ds_surf_obs_DJF</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span> <span class="s1">&#39;TLAT&#39;</span><span class="p">]),</span> 
+    <span class="s1">&#39;totChl_JJA_obs&#39;</span><span class="p">:</span> <span class="n">ds_surf_obs_JJA</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span> <span class="s1">&#39;TLAT&#39;</span><span class="p">]),</span>     
+<span class="p">})</span>
+<span class="n">ds_surf_plot</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">pop_add_cyclic</span><span class="p">(</span><span class="n">ds_surf_plot</span><span class="p">)</span>
+<span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>xarray.Dataset {
+dimensions:
+	nlat = 384 ;
+	nlon = 321 ;
+
+variables:
+	float64 TLAT(nlat, nlon) ;
+	float64 TLONG(nlat, nlon) ;
+	float32 totChl_DJF(nlat, nlon) ;
+		totChl_DJF:long_name = Total Chlorophyll at Surface ;
+		totChl_DJF:units = mg/m^3 ;
+		totChl_DJF:grid_loc = 3114 ;
+		totChl_DJF:cell_methods = time: mean ;
+	float32 totChl_JJA(nlat, nlon) ;
+		totChl_JJA:long_name = Total Chlorophyll at Surface ;
+		totChl_JJA:units = mg/m^3 ;
+		totChl_JJA:grid_loc = 3114 ;
+		totChl_JJA:cell_methods = time: mean ;
+	float64 totChl_DJF_obs(nlat, nlon) ;
+		totChl_DJF_obs:long_name = Chlorophyll Concentration, GSM model ;
+		totChl_DJF_obs:units = mg m^-3 ;
+		totChl_DJF_obs:standard_name = mass_concentration_chlorophyll_concentration_in_sea_water ;
+		totChl_DJF_obs:reference = Maritorena S., D.A. Siegel and A. Peterson, Optimization of a Semi-Analytical Ocean Color Model for Global Scale Applications, Applied  Optics,  41(15): 2705-2714, 2002. ;
+		totChl_DJF_obs:display_scale = log ;
+		totChl_DJF_obs:display_min = 0.009999999776482582 ;
+		totChl_DJF_obs:display_max = 20.0 ;
+		totChl_DJF_obs:regrid_method = conservative ;
+		totChl_DJF_obs:history = 
+2020-05-08 13:20:46.184017 esmlab.regrid &lt;regrid&gt;  ;
+	float64 totChl_JJA_obs(nlat, nlon) ;
+		totChl_JJA_obs:long_name = Chlorophyll Concentration, GSM model ;
+		totChl_JJA_obs:units = mg m^-3 ;
+		totChl_JJA_obs:standard_name = mass_concentration_chlorophyll_concentration_in_sea_water ;
+		totChl_JJA_obs:reference = Maritorena S., D.A. Siegel and A. Peterson, Optimization of a Semi-Analytical Ocean Color Model for Global Scale Applications, Applied  Optics,  41(15): 2705-2714, 2002. ;
+		totChl_JJA_obs:display_scale = log ;
+		totChl_JJA_obs:display_min = 0.009999999776482582 ;
+		totChl_JJA_obs:display_max = 20.0 ;
+		totChl_JJA_obs:regrid_method = conservative ;
+		totChl_JJA_obs:history = 
+2020-05-08 13:20:46.669145 esmlab.regrid &lt;regrid&gt;  ;
+
+// global attributes:
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;mg m$^{-3}$&#39;</span>
+<span class="n">title</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;totChl_DJF&#39;</span><span class="p">:</span> <span class="s1">&#39;Chlorophyll (DJF)&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;totChl_JJA&#39;</span><span class="p">:</span> <span class="s1">&#39;Chlorophyll (JJA)&#39;</span><span class="p">,</span>     
+<span class="p">}</span>
+
+<span class="n">cmap_field</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span>
+<span class="n">cmap_bias</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">balance</span>
+
+<span class="n">levels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">totChl</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">levels_bias</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">totChl</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
+<span class="p">)</span>    
+
+
+<span class="n">contour_spec</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">totChl</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">],</span>
+        <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_field</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="n">cmap_field</span><span class="o">.</span><span class="n">N</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="n">totChl_bias</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">levels</span><span class="o">=</span><span class="n">levels_bias</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">],</span> 
+        <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>        
+        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_bias</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">levels_bias</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="n">cmap_bias</span><span class="o">.</span><span class="n">N</span><span class="p">),</span>        
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">))</span>
+
+<span class="n">prj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mf">305.0</span><span class="p">)</span>
+
+<span class="n">axs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">maps</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fld</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;totChl_DJF&#39;</span><span class="p">,</span> <span class="s1">&#39;totChl_JJA&#39;</span><span class="p">]):</span>
+    <span class="n">ax_m</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">prj</span><span class="p">)</span>
+    <span class="n">ax_o</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">prj</span><span class="p">)</span>
+    <span class="n">ax_b</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="n">prj</span><span class="p">)</span>
+    
+    <span class="n">ax_m</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+    <span class="n">ax_o</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+    <span class="n">ax_b</span><span class="o">.</span><span class="n">set_global</span><span class="p">()</span>
+    
+    <span class="n">cax_field</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">cax_bias</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+    
+    <span class="n">axs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax_m</span><span class="p">,</span> <span class="n">ax_o</span><span class="p">,</span> <span class="n">cax_field</span><span class="p">,</span> <span class="n">ax_b</span><span class="p">,</span> <span class="n">cax_bias</span><span class="p">))</span>
+    <span class="n">maps</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">ax_m</span><span class="p">,</span> <span class="n">ax_o</span><span class="p">,</span> <span class="n">ax_b</span><span class="p">])</span>
+    
+    <span class="n">cesm</span> <span class="o">=</span> <span class="n">ds_surf_plot</span><span class="p">[</span><span class="n">fld</span><span class="p">]</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">ds_surf_plot</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fld</span><span class="si">}</span><span class="s1">_obs&#39;</span><span class="p">]</span>
+    <span class="n">bias</span> <span class="o">=</span> <span class="n">cesm</span> <span class="o">-</span> <span class="n">obs</span>
+
+    <span class="n">cf_m</span> <span class="o">=</span> <span class="n">ax_m</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">TLONG</span><span class="p">,</span> <span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">TLAT</span><span class="p">,</span> <span class="n">cesm</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">contour_spec</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">],</span>        
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+    <span class="p">)</span>
+    
+<span class="c1">#     cl_m = ax_m.contour(</span>
+<span class="c1">#         ds_surf_plot.TLONG, ds_surf_plot.TLAT, cesm, </span>
+<span class="c1">#         levels=contour_spec[&#39;totChl&#39;][&#39;levels&#39;], colors=&#39;k&#39;, linewidths=0.2,</span>
+<span class="c1">#         transform=ccrs.PlateCarree(),        </span>
+<span class="c1">#     )</span>
+    
+    <span class="n">cf_o</span> <span class="o">=</span> <span class="n">ax_o</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">TLONG</span><span class="p">,</span> <span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">TLAT</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">contour_spec</span><span class="p">[</span><span class="s1">&#39;totChl&#39;</span><span class="p">],</span>        
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>        
+    <span class="p">)</span>
+
+<span class="c1">#     cl_o = ax_o.contour(</span>
+<span class="c1">#         ds_surf_plot.TLONG, ds_surf_plot.TLAT, obs, </span>
+<span class="c1">#         levels=contour_spec[&#39;totChl&#39;][&#39;levels&#39;], colors=&#39;k&#39;, linewidths=0.2,</span>
+<span class="c1">#         transform=ccrs.PlateCarree(),        </span>
+<span class="c1">#     )</span>
+    
+    <span class="n">cf_b</span> <span class="o">=</span> <span class="n">ax_b</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">TLONG</span><span class="p">,</span> <span class="n">ds_surf_plot</span><span class="o">.</span><span class="n">TLAT</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">contour_spec</span><span class="p">[</span><span class="s1">&#39;totChl_bias&#39;</span><span class="p">],</span>                     
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>        
+    <span class="p">)</span>    
+
+<span class="c1">#     cl_b = ax_b.contour(</span>
+<span class="c1">#         ds_surf_plot.TLONG, ds_surf_plot.TLAT, bias, </span>
+<span class="c1">#         levels=contour_spec[&#39;totChl_bias&#39;][&#39;levels&#39;], colors=&#39;k&#39;, linewidths=0.2,</span>
+<span class="c1">#         transform=ccrs.PlateCarree(),        </span>
+<span class="c1">#     )</span>
+    
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax_m</span><span class="p">,</span> <span class="n">ax_o</span><span class="p">,</span> <span class="n">ax_b</span><span class="p">]:</span>
+        <span class="n">land</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span>
+            <span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span>
+                <span class="s1">&#39;physical&#39;</span><span class="p">,</span><span class="s1">&#39;land&#39;</span><span class="p">,</span><span class="s1">&#39;110m&#39;</span><span class="p">,</span>
+                <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;face&#39;</span><span class="p">,</span>
+                <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>        
+        
+    <span class="n">ax_m</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CESM&#39;</span><span class="p">)</span>
+    <span class="n">ax_o</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Observations&#39;</span><span class="p">)</span>    
+    <span class="n">ax_b</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bias&#39;</span><span class="p">)</span>        
+    
+    <span class="n">cb_field</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf_o</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax_field</span><span class="p">,</span> <span class="n">drawedges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cb_field</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+    <span class="n">cb_field</span><span class="o">.</span><span class="n">outline</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">cb_field</span><span class="o">.</span><span class="n">dividers</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>    
+    
+    <span class="n">cb_bias</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf_b</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax_bias</span><span class="p">,</span> <span class="n">drawedges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cb_bias</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+    <span class="n">cb_bias</span><span class="o">.</span><span class="n">outline</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">cb_bias</span><span class="o">.</span><span class="n">dividers</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>    
+    
+<span class="c1"># add a gap between left two columns and right; scale colorbars</span>
+<span class="n">gs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">cax_vert_shrink</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axs</span><span class="p">)):</span>
+    
+    <span class="c1"># the row of axis objects</span>
+    <span class="n">ax_m</span><span class="p">,</span> <span class="n">ax_o</span><span class="p">,</span> <span class="n">cax_field</span><span class="p">,</span> <span class="n">ax_b</span><span class="p">,</span> <span class="n">cax_bias</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="c1"># shift map</span>
+    <span class="n">p0</span> <span class="o">=</span> <span class="n">ax_b</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+    <span class="n">ax_b</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">p0</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">height</span><span class="p">])</span>
+
+    <span class="c1"># shift and scale colorbar</span>
+    <span class="n">p0</span> <span class="o">=</span> <span class="n">cax_bias</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+    <span class="n">shift_up</span> <span class="o">=</span> <span class="n">p0</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">cax_vert_shrink</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">cax_bias</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">p0</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">y0</span> <span class="o">+</span> <span class="n">shift_up</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">cax_vert_shrink</span><span class="p">])</span>
+
+    <span class="c1"># scale colorbar    </span>
+    <span class="n">p0</span> <span class="o">=</span> <span class="n">cax_field</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+    <span class="n">shift_up</span> <span class="o">=</span> <span class="n">p0</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">cax_vert_shrink</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">cax_field</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">p0</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">y0</span> <span class="o">+</span> <span class="n">shift_up</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">p0</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">cax_vert_shrink</span><span class="p">])</span>
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="s1">&#39;DJF&#39;</span><span class="p">,</span>
+         <span class="n">fontsize</span><span class="o">=</span><span class="mf">14.</span><span class="p">,</span>
+         <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;semibold&#39;</span><span class="p">,</span>
+         <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+         <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;JJA&#39;</span><span class="p">,</span>
+         <span class="n">fontsize</span><span class="o">=</span><span class="mf">14.</span><span class="p">,</span>
+         <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;semibold&#39;</span><span class="p">,</span>
+         <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>         
+         <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>    
+    
+<span class="n">utils</span><span class="o">.</span><span class="n">label_plots</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">maps</span><span class="p">,</span> <span class="n">xoff</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">yoff</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>   
+<span class="n">utils</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;chl-surface-maps&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chlorophyll-plots_7_0.png" src="../_images/chlorophyll-plots_7_0.png" />
+</div>
+</div>
+<div class="section" id="hovmoller-plots-for-zonal-means-in-atlantic-and-pacific">
+<h2>Hovmöller plots for zonal means in Atlantic and Pacific<a class="headerlink" href="#hovmoller-plots-for-zonal-means-in-atlantic-and-pacific" title="Permalink to this headline">¶</a></h2>
+<p>x-axis should be latitude, y axis should be time (<code class="docutils literal notranslate"><span class="pre">month</span></code>?)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask3d</span> <span class="o">=</span> <span class="n">pop_tools</span><span class="o">.</span><span class="n">region_mask_3d</span><span class="p">(</span><span class="s1">&#39;POP_gx1v7&#39;</span><span class="p">,</span> <span class="n">mask_name</span><span class="o">=</span><span class="s1">&#39;Pacific-Indian-Atlantic&#39;</span><span class="p">)</span>
+<span class="n">basins</span> <span class="o">=</span> <span class="n">mask3d</span><span class="o">.</span><span class="n">region</span>
+<span class="n">nregion</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mask3d</span><span class="o">.</span><span class="n">region</span><span class="p">)</span>
+<span class="n">mask2d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">mask3d</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nregion</span><span class="p">):</span> <span class="c1"># skip first index because &quot;za&quot; puts the global field in there</span>
+    <span class="n">mask2d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask3d</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">mask2d</span><span class="p">)</span>
+<span class="n">mask2d</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;REGION_MASK&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/mclong/miniconda3/envs/cesm2-marbl/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:365: NumbaWarning: The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 6103. The TBB threading layer is disabled.
+  warnings.warn(problem)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_obs_ann</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">read_obs</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;SeaWiFS&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;monthly&#39;</span><span class="p">)[</span><span class="s1">&#39;chl_gsm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;totChl&#39;</span><span class="p">)</span>
+
+<span class="c1"># recast &#39;month&#39; as integers to allow introduction of _FillValue</span>
+<span class="c1"># (kludge for the zonal mean executable)</span>
+<span class="n">ds_obs_ann</span> <span class="o">=</span> <span class="n">ds_obs_ann</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
+<span class="n">ds_obs_ann</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
+<span class="n">ds_obs_ann</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;_FillValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="s1">&#39;POP_gx1v7&#39;</span><span class="p">,</span> <span class="n">region_mask</span><span class="o">=</span><span class="n">mask2d</span><span class="p">)</span>
+
+<span class="n">regions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">regions</span><span class="p">[</span><span class="s1">&#39;Pacific Ocean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">regions</span><span class="p">[</span><span class="s1">&#39;Atlantic Ocean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">da_zonal_mean</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">zonal_mean_via_fortran</span><span class="p">(</span><span class="n">ds_ann</span><span class="p">,</span> <span class="s1">&#39;totChl&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">da_zonal_mean_obs</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">zonal_mean_via_fortran</span><span class="p">(</span><span class="n">ds_obs_ann</span><span class="p">,</span> <span class="s1">&#39;totChl&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>za ran successfully, writing netcdf output
+za ran successfully, writing netcdf output
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hovmoller_plots</span><span class="p">(</span><span class="n">da_zonal_mean</span><span class="p">,</span> <span class="n">da_zonal_mean_obs</span><span class="p">,</span> <span class="n">region</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#     import cartopy</span>
+<span class="c1">#     import cartopy.crs as ccrs</span>
+
+    <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">bias_levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.35</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">subfig</span> <span class="o">=</span> <span class="n">da_zonal_mean</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">basins</span><span class="o">=</span><span class="n">regions</span><span class="p">[</span><span class="n">region</span><span class="p">])</span><span class="o">.</span><span class="n">totChl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s1"> from POP run&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">19</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">da_zonal_mean_obs</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">basins</span><span class="o">=</span><span class="n">regions</span><span class="p">[</span><span class="n">region</span><span class="p">])</span><span class="o">.</span><span class="n">totChl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s1"> from SeaWiFS&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">19</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">da_zonal_mean</span> <span class="o">-</span> <span class="n">da_zonal_mean_obs</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">basins</span><span class="o">=</span><span class="n">regions</span><span class="p">[</span><span class="n">region</span><span class="p">])</span><span class="o">.</span><span class="n">totChl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="n">bias_levels</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;neither&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bias&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">19</span><span class="p">))</span>
+    <span class="c1"># For bottom panel, set up tick labels at -90, -60, -30, 0, 30, 60, and 90</span>
+    <span class="n">xticklabels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">18</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">3</span>:
+            <span class="n">xticklabels</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hovmoller_plots</span><span class="p">(</span><span class="n">da_zonal_mean</span><span class="p">,</span> <span class="n">da_zonal_mean_obs</span><span class="p">,</span> <span class="s1">&#39;Atlantic Ocean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chlorophyll-plots_13_0.png" src="../_images/chlorophyll-plots_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hovmoller_plots</span><span class="p">(</span><span class="n">da_zonal_mean</span><span class="p">,</span> <span class="n">da_zonal_mean_obs</span><span class="p">,</span> <span class="s1">&#39;Pacific Ocean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chlorophyll-plots_14_0.png" src="../_images/chlorophyll-plots_14_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./figures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transient CO2 &#8212; CESM2 MARBL</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Transient Biological Pump" href="transient-biological-pump.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="dFe-comparison.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/marbl_photo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CESM2 MARBL</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Observations Description
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/obs_datasets.html">
+   Observational Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model Observation Comparison
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tables/Global_Flux_Table.html">
+   Generating a Table of Global Fluxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mld.html">
+   Mixed Layer Depth (MLD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ventilation.html">
+   Ventilation tracers: CFCs, 14C, Cant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nutrient-plots.html">
+   Nutrient Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nutrient-limitation.html">
+   Nutrient Limitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="biological-pump.html">
+   Biological Pump
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="co2-flux.html">
+   CO
+   <sub>
+    2
+   </sub>
+   Flux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Ncycle-plots.html">
+   Nutrient Cycle (Ncycle)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Transient CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transient-biological-pump.html">
+   Transient Biological Pump
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusions.html">
+   Conclusions and Future Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/figures/transient-fgco2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/figures/transient-fgco2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="transient-co-sub-2-sub">
+<h1>Transient CO<sub>2</sub><a class="headerlink" href="#transient-co-sub-2-sub" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">colors</span>
+<span class="kn">import</span> <span class="nn">cmocean</span>
+
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CESMDATAROOT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/glade/scratch/mclong/inputdata&#39;</span>
+<span class="kn">import</span> <span class="nn">pop_tools</span>
+
+<span class="kn">import</span> <span class="nn">utils</span>
+<span class="kn">import</span> <span class="nn">data_collections</span>
+<span class="kn">import</span> <span class="nn">plot</span>
+
+<span class="kn">from</span> <span class="nn">ncar_jobqueue</span> <span class="kn">import</span> <span class="n">NCARCluster</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="n">NCARCluster</span><span class="p">(</span><span class="n">memory</span><span class="o">=</span><span class="s1">&#39;10 GB&#39;</span><span class="p">)</span>
+<span class="n">cluster</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#adapt(minimum_jobs=0, maximum_jobs=24)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/mgrover/miniconda3/envs/cesm2-marbl/lib/python3.7/site-packages/distributed/node.py:164: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 40653 instead
+  expected, actual
+</pre></div>
+</div>
+<div class="output text_html"><table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://10.12.206.57:44211</li>
+  <li><b>Dashboard: </b><a href='https://jupyterhub.hpc.ucar.edu/stable/user/mgrover/proxy/40007/status' target='_blank'>https://jupyterhub.hpc.ucar.edu/stable/user/mgrover/proxy/40007/status</a></li>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>24</li>
+  <li><b>Cores: </b>24</li>
+  <li><b>Memory: </b>558.72 GiB</li>
+</ul>
+</td>
+</tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">experiments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;historical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSP1-2.6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSP2-4.5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSP3-7.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSP5-8.5&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="n">experiments</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="s1">&#39;pop.h&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">glb_int</span> <span class="o">=</span> <span class="n">data_collections</span><span class="o">.</span><span class="n">global_integral_timeseries_ann</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">glb_avg</span> <span class="o">=</span> <span class="n">data_collections</span><span class="o">.</span><span class="n">global_mean_timeseries_ann</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">glb_int</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ &#39;esm_collection&#39;: &#39;data/campaign-cesm2-cmip6-timeseries.json&#39;,
+  &#39;name&#39;: &#39;global_mean_timeseries_ann&#39;,
+  &#39;operator_kwargs&#39;: [ { },
+                       { &#39;include_ms&#39;: False,
+                         &#39;normalize&#39;: False},
+                       { }],
+  &#39;operators&#39;: [ &#39;center_time&#39;,
+                 &#39;global_mean&#39;,
+                 &#39;resample_ann&#39;],
+  &#39;preprocess&#39;: None,
+  &#39;query&#39;: { &#39;experiment&#39;: [ &#39;historical&#39;,
+                             &#39;SSP1-2.6&#39;,
+                             &#39;SSP2-4.5&#39;,
+                             &#39;SSP3-7.0&#39;,
+                             &#39;SSP5-8.5&#39;],
+             &#39;stream&#39;: &#39;pop.h&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsets_int</span> <span class="o">=</span> <span class="n">glb_int</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">(</span><span class="s1">&#39;FG_CO2&#39;</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">dsets_avg</span> <span class="o">=</span> <span class="n">glb_avg</span><span class="o">.</span><span class="n">to_dataset_dict</span><span class="p">([</span><span class="s1">&#39;ATM_CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;SST&#39;</span><span class="p">,],</span> <span class="n">prefer_derived</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">dsets_int</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">==</span> <span class="n">dsets_avg</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="n">dsets</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dsets_int</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">dsets</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">dsets_int</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">dsets_avg</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+
+<span class="n">dsets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ocn.historical.pop.h&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:                 (lat_aux_grid: 395, member_id: 11, moc_comp: 3, moc_z: 61, nlat: 384, nlon: 320, time: 165, transport_comp: 5, transport_reg: 2, z_t: 60, z_t_150m: 15, z_w: 60, z_w_bot: 60, z_w_top: 60)
+ Coordinates: (12/13)
+   * z_t_150m                (z_t_150m) float32 500.0 1.5e+03 ... 1.45e+04
+     TLONG                   (nlat, nlon) float64 320.6 321.7 ... 319.4 319.8
+     TLAT                    (nlat, nlon) float64 -79.22 -79.22 ... 72.19 72.19
+   * member_id               (member_id) int64 1 2 3 4 5 6 7 8 9 10 11
+   * z_t                     (z_t) float32 500.0 1.5e+03 ... 5.125e+05 5.375e+05
+   * moc_z                   (moc_z) float32 0.0 1e+03 2e+03 ... 5.25e+05 5.5e+05
+     ...                      ...
+   * z_w                     (z_w) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * z_w_bot                 (z_w_bot) float32 1e+03 2e+03 ... 5.25e+05 5.5e+05
+   * z_w_top                 (z_w_top) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * lat_aux_grid            (lat_aux_grid) float32 -79.49 -78.95 ... 89.47 90.0
+     ULONG                   (nlat, nlon) float64 321.1 322.3 ... 319.6 320.0
+   * time                    (time) int64 1850 1851 1852 1853 ... 2012 2013 2014
+ Dimensions without coordinates: moc_comp, nlat, nlon, transport_comp, transport_reg
+ Data variables: (12/56)
+     TAREA                   (nlat, nlon) float64 1.125e+13 ... 7.432e+12
+     sound                   float64 1.5e+05
+     ocn_ref_salinity        float64 34.7
+     days_in_norm_year       timedelta64[ns] 365 days
+     sflux_factor            float64 0.1
+     HUS                     (nlat, nlon) float64 2.397e+06 ... 1.473e+06
+     ...                      ...
+     salt_to_Svppt           float64 1e-09
+     rho_sw                  float64 1.026
+     nsurface_u              float64 8.297e+04
+     FG_CO2                  (time, member_id) float64 ...
+     ATM_CO2                 (time, member_id) float64 ...
+     SST                     (time, member_id) float64 ...,
+ &#39;ocn.SSP5-8.5.pop.h&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:                 (lat_aux_grid: 395, member_id: 3, moc_comp: 3, moc_z: 61, nlat: 384, nlon: 320, time: 86, transport_comp: 5, transport_reg: 2, z_t: 60, z_t_150m: 15, z_w: 60, z_w_bot: 60, z_w_top: 60)
+ Coordinates: (12/13)
+   * z_t_150m                (z_t_150m) float32 500.0 1.5e+03 ... 1.45e+04
+     TLONG                   (nlat, nlon) float64 320.6 321.7 ... 319.4 319.8
+     TLAT                    (nlat, nlon) float64 -79.22 -79.22 ... 72.19 72.19
+   * member_id               (member_id) int64 4 10 11
+   * z_t                     (z_t) float32 500.0 1.5e+03 ... 5.125e+05 5.375e+05
+   * moc_z                   (moc_z) float32 0.0 1e+03 2e+03 ... 5.25e+05 5.5e+05
+     ...                      ...
+   * z_w                     (z_w) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * z_w_bot                 (z_w_bot) float32 1e+03 2e+03 ... 5.25e+05 5.5e+05
+   * z_w_top                 (z_w_top) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * lat_aux_grid            (lat_aux_grid) float32 -79.49 -78.95 ... 89.47 90.0
+     ULONG                   (nlat, nlon) float64 321.1 322.3 ... 319.6 320.0
+   * time                    (time) int64 2015 2016 2017 2018 ... 2098 2099 2100
+ Dimensions without coordinates: moc_comp, nlat, nlon, transport_comp, transport_reg
+ Data variables: (12/56)
+     TAREA                   (nlat, nlon) float64 1.125e+13 ... 7.432e+12
+     sound                   float64 1.5e+05
+     ocn_ref_salinity        float64 34.7
+     days_in_norm_year       timedelta64[ns] 365 days
+     sflux_factor            float64 0.1
+     HUS                     (nlat, nlon) float64 2.397e+06 ... 1.473e+06
+     ...                      ...
+     salt_to_Svppt           float64 1e-09
+     rho_sw                  float64 1.026
+     nsurface_u              float64 8.297e+04
+     FG_CO2                  (time, member_id) float64 ...
+     ATM_CO2                 (time, member_id) float64 ...
+     SST                     (time, member_id) float64 ...,
+ &#39;ocn.SSP3-7.0.pop.h&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:                 (lat_aux_grid: 395, member_id: 3, moc_comp: 3, moc_z: 61, nlat: 384, nlon: 320, time: 86, transport_comp: 5, transport_reg: 2, z_t: 60, z_t_150m: 15, z_w: 60, z_w_bot: 60, z_w_top: 60)
+ Coordinates: (12/13)
+   * z_t_150m                (z_t_150m) float32 500.0 1.5e+03 ... 1.45e+04
+     TLONG                   (nlat, nlon) float64 320.6 321.7 ... 319.4 319.8
+     TLAT                    (nlat, nlon) float64 -79.22 -79.22 ... 72.19 72.19
+   * member_id               (member_id) int64 4 10 11
+   * z_t                     (z_t) float32 500.0 1.5e+03 ... 5.125e+05 5.375e+05
+   * moc_z                   (moc_z) float32 0.0 1e+03 2e+03 ... 5.25e+05 5.5e+05
+     ...                      ...
+   * z_w                     (z_w) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * z_w_bot                 (z_w_bot) float32 1e+03 2e+03 ... 5.25e+05 5.5e+05
+   * z_w_top                 (z_w_top) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * lat_aux_grid            (lat_aux_grid) float32 -79.49 -78.95 ... 89.47 90.0
+     ULONG                   (nlat, nlon) float64 321.1 322.3 ... 319.6 320.0
+   * time                    (time) int64 2015 2016 2017 2018 ... 2098 2099 2100
+ Dimensions without coordinates: moc_comp, nlat, nlon, transport_comp, transport_reg
+ Data variables: (12/56)
+     TAREA                   (nlat, nlon) float64 1.125e+13 ... 7.432e+12
+     sound                   float64 1.5e+05
+     ocn_ref_salinity        float64 34.7
+     days_in_norm_year       timedelta64[ns] 365 days
+     sflux_factor            float64 0.1
+     HUS                     (nlat, nlon) float64 2.397e+06 ... 1.473e+06
+     ...                      ...
+     salt_to_Svppt           float64 1e-09
+     rho_sw                  float64 1.026
+     nsurface_u              float64 8.297e+04
+     FG_CO2                  (time, member_id) float64 ...
+     ATM_CO2                 (time, member_id) float64 ...
+     SST                     (time, member_id) float64 ...,
+ &#39;ocn.SSP1-2.6.pop.h&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:                 (lat_aux_grid: 395, member_id: 3, moc_comp: 3, moc_z: 61, nlat: 384, nlon: 320, time: 86, transport_comp: 5, transport_reg: 2, z_t: 60, z_t_150m: 15, z_w: 60, z_w_bot: 60, z_w_top: 60)
+ Coordinates: (12/13)
+   * z_t_150m                (z_t_150m) float32 500.0 1.5e+03 ... 1.45e+04
+     TLONG                   (nlat, nlon) float64 320.6 321.7 ... 319.4 319.8
+     TLAT                    (nlat, nlon) float64 -79.22 -79.22 ... 72.19 72.19
+   * member_id               (member_id) int64 4 10 11
+   * z_t                     (z_t) float32 500.0 1.5e+03 ... 5.125e+05 5.375e+05
+   * moc_z                   (moc_z) float32 0.0 1e+03 2e+03 ... 5.25e+05 5.5e+05
+     ...                      ...
+   * z_w                     (z_w) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * z_w_bot                 (z_w_bot) float32 1e+03 2e+03 ... 5.25e+05 5.5e+05
+   * z_w_top                 (z_w_top) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * lat_aux_grid            (lat_aux_grid) float32 -79.49 -78.95 ... 89.47 90.0
+     ULONG                   (nlat, nlon) float64 321.1 322.3 ... 319.6 320.0
+   * time                    (time) int64 2015 2016 2017 2018 ... 2098 2099 2100
+ Dimensions without coordinates: moc_comp, nlat, nlon, transport_comp, transport_reg
+ Data variables: (12/56)
+     TAREA                   (nlat, nlon) float64 1.125e+13 ... 7.432e+12
+     sound                   float64 1.5e+05
+     ocn_ref_salinity        float64 34.7
+     days_in_norm_year       timedelta64[ns] 365 days
+     sflux_factor            float64 0.1
+     HUS                     (nlat, nlon) float64 2.397e+06 ... 1.473e+06
+     ...                      ...
+     salt_to_Svppt           float64 1e-09
+     rho_sw                  float64 1.026
+     nsurface_u              float64 8.297e+04
+     FG_CO2                  (time, member_id) float64 ...
+     ATM_CO2                 (time, member_id) float64 ...
+     SST                     (time, member_id) float64 ...,
+ &#39;ocn.SSP2-4.5.pop.h&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:                 (lat_aux_grid: 395, member_id: 3, moc_comp: 3, moc_z: 61, nlat: 384, nlon: 320, time: 86, transport_comp: 5, transport_reg: 2, z_t: 60, z_t_150m: 15, z_w: 60, z_w_bot: 60, z_w_top: 60)
+ Coordinates: (12/13)
+   * z_t_150m                (z_t_150m) float32 500.0 1.5e+03 ... 1.45e+04
+     TLONG                   (nlat, nlon) float64 320.6 321.7 ... 319.4 319.8
+     TLAT                    (nlat, nlon) float64 -79.22 -79.22 ... 72.19 72.19
+   * member_id               (member_id) int64 4 10 11
+   * z_t                     (z_t) float32 500.0 1.5e+03 ... 5.125e+05 5.375e+05
+   * moc_z                   (moc_z) float32 0.0 1e+03 2e+03 ... 5.25e+05 5.5e+05
+     ...                      ...
+   * z_w                     (z_w) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * z_w_bot                 (z_w_bot) float32 1e+03 2e+03 ... 5.25e+05 5.5e+05
+   * z_w_top                 (z_w_top) float32 0.0 1e+03 2e+03 ... 5e+05 5.25e+05
+   * lat_aux_grid            (lat_aux_grid) float32 -79.49 -78.95 ... 89.47 90.0
+     ULONG                   (nlat, nlon) float64 321.1 322.3 ... 319.6 320.0
+   * time                    (time) int64 2015 2016 2017 2018 ... 2098 2099 2100
+ Dimensions without coordinates: moc_comp, nlat, nlon, transport_comp, transport_reg
+ Data variables: (12/56)
+     TAREA                   (nlat, nlon) float64 1.125e+13 ... 7.432e+12
+     sound                   float64 1.5e+05
+     ocn_ref_salinity        float64 34.7
+     days_in_norm_year       timedelta64[ns] 365 days
+     sflux_factor            float64 0.1
+     HUS                     (nlat, nlon) float64 2.397e+06 ... 1.473e+06
+     ...                      ...
+     salt_to_Svppt           float64 1e-09
+     rho_sw                  float64 1.026
+     nsurface_u              float64 8.297e+04
+     FG_CO2                  (time, member_id) float64 ...
+     ATM_CO2                 (time, member_id) float64 ...
+     SST                     (time, member_id) float64 ...}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">client</span>
+<span class="k">del</span> <span class="n">cluster</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">current_palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">current_palette</span><span class="p">)</span>
+
+<span class="n">exp_colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;PI&#39;</span><span class="p">:</span> <span class="n">current_palette</span><span class="o">.</span><span class="n">as_hex</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;historical&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSP1-2.6&#39;</span><span class="p">:</span> <span class="n">current_palette</span><span class="o">.</span><span class="n">as_hex</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;SSP2-4.5&#39;</span><span class="p">:</span> <span class="n">current_palette</span><span class="o">.</span><span class="n">as_hex</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;SSP3-7.0&#39;</span><span class="p">:</span> <span class="n">current_palette</span><span class="o">.</span><span class="n">as_hex</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="s1">&#39;SSP5-8.5&#39;</span><span class="p">:</span> <span class="n">current_palette</span><span class="o">.</span><span class="n">as_hex</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/transient-fgco2_8_0.png" src="../_images/transient-fgco2_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable_labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">year</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
+    <span class="n">FG_CO2</span><span class="o">=</span><span class="s1">&#39;Air-sea CO$_2$ flux [Pg C yr$^{-1}$]&#39;</span><span class="p">,</span>
+    <span class="n">photoC_TOT_zint_100m</span><span class="o">=</span><span class="s1">&#39;NPP (z &gt; -100m) [Pg C yr$^{-1}$]&#39;</span><span class="p">,</span>
+    <span class="n">photoC_TOT_zint</span><span class="o">=</span><span class="s1">&#39;NPP [Pg C yr$^{-1}$]&#39;</span><span class="p">,</span>
+    <span class="n">POC_FLUX_100m</span><span class="o">=</span><span class="s1">&#39;POC flux (100 m) [Pg C yr$^{-1}$]&#39;</span><span class="p">,</span>
+    <span class="n">ATM_CO2</span><span class="o">=</span><span class="s1">&#39;Atmospheric CO$_2$ [ppm]&#39;</span><span class="p">,</span>
+    <span class="n">SST</span><span class="o">=</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">,</span>
+    <span class="n">time</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;FG_CO2&#39;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;SST&#39;</span>
+
+<span class="n">nrow</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1">#fig, axs = plt.subplots(nrow, ncol, figsize=(4*ncol, 3*nrow), constrained_layout=False)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">hspace</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">wspace</span><span class="o">=</span><span class="mf">0.22</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+
+
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;ATM_CO2&#39;</span><span class="p">],]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;ATM_CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;SST&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;FG_CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;FG_CO2&#39;</span><span class="p">],]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">experiments</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">dsets</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;ocn.</span><span class="si">{</span><span class="n">exp</span><span class="si">}</span><span class="s1">.pop.h&#39;</span><span class="p">]</span>
+        <span class="c1">#for member_id in ds.member_id.values:</span>
+        <span class="c1">#    ax.plot(ds.time, ds[v].sel(member_id=member_id), &#39;-&#39;, alpha=0.25, linewidth=1, color=exp_colors[exp])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;member_id&#39;</span><span class="p">)[</span><span class="n">x</span><span class="p">],</span> <span class="n">ds</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;member_id&#39;</span><span class="p">)[</span><span class="n">y</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">exp_colors</span><span class="p">[</span><span class="n">exp</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">exp</span><span class="p">)</span>
+        
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">variable_labels</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>    
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">variable_labels</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">utils</span><span class="o">.</span><span class="n">label_plots</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()],</span> <span class="n">xoff</span><span class="o">=-</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">yoff</span><span class="o">=</span><span class="mf">0.015</span><span class="p">)</span>   
+
+<span class="n">utils</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;global-timeseries-FG_CO2.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/transient-fgco2_10_0.png" src="../_images/transient-fgco2_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span> <span class="o">=</span> <span class="n">dsets</span><span class="p">[</span><span class="s1">&#39;ocn.historical.pop.h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">SST</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">exp</span><span class="p">,</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">dsets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;SSP&#39;</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">warming</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">SST</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">baseline</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">exp</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">warming</span><span class="o">.</span><span class="n">values</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ocn.SSP5-8.5.pop.h: 4.60
+ocn.SSP3-7.0.pop.h: 3.33
+ocn.SSP1-2.6.pop.h: 1.72
+ocn.SSP2-4.5.pop.h: 2.54
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./figures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="dFe-comparison.html" title="previous page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="transient-biological-pump.html" title="next page">Transient Biological Pump</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

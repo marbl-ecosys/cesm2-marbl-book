@@ -1,0 +1,1132 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generating a Table of Global Fluxes &#8212; CESM2 MARBL</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mixed Layer Depth (MLD)" href="../figures/mld.html" />
+    <link rel="prev" title="Observational Datasets" href="../background/obs_datasets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/marbl_photo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CESM2 MARBL</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Observations Description
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/obs_datasets.html">
+   Observational Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model Observation Comparison
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Generating a Table of Global Fluxes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/mld.html">
+   Mixed Layer Depth (MLD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/ventilation.html">
+   Ventilation tracers: CFCs, 14C, Cant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/nutrient-plots.html">
+   Nutrient Evaluation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/nutrient-limitation.html">
+   Nutrient Limitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/biological-pump.html">
+   Biological Pump
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/co2-flux.html">
+   CO
+   <sub>
+    2
+   </sub>
+   Flux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/Ncycle-plots.html">
+   Nutrient Cycle (Ncycle)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/transient-fgco2.html">
+   Transient CO
+   <sub>
+    2
+   </sub>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../figures/transient-biological-pump.html">
+   Transient Biological Pump
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusions.html">
+   Conclusions and Future Development
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tables/Global_Flux_Table.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tables/Global_Flux_Table.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Generating a Table of Global Fluxes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-notebook-uses-several-python-packages">
+     This notebook uses several python packages
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copy-data-that-is-shared-with-time-series-plotting-from-aau">
+     Copy data that is shared with time series plotting from aau
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#read-output-from-make-timeseries-ipynb">
+       Read output from Make Timeseries.ipynb
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce-data-sets">
+   Reduce Data Sets
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-labels-for-rows-in-each-table">
+     Define labels for rows in each table
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-over-all-ensemble-members-and-time-for-proper-time-period">
+     Average over all ensemble members and time (for proper time period)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#actually-make-the-tables">
+     Actually make the tables
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="generating-a-table-of-global-fluxes">
+<h1>Generating a Table of Global Fluxes<a class="headerlink" href="#generating-a-table-of-global-fluxes" title="Permalink to this headline">¶</a></h1>
+<p>This notebook reads time series data from <code class="docutils literal notranslate"><span class="pre">Make</span> <span class="pre">Timeseries.ipynb</span></code> and
+generates a table containing values listed in <a class="reference external" href="https://github.com/marbl-ecosys/cesm2-marbl/issues/6">issue #6</a></p>
+<div class="section" id="this-notebook-uses-several-python-packages">
+<h2>This notebook uses several python packages<a class="headerlink" href="#this-notebook-uses-several-python-packages" title="Permalink to this headline">¶</a></h2>
+<p>The watermark package shows the version number used to help others recreate this environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">ann_avg_utils</span> <span class="k">as</span> <span class="nn">aau</span>
+
+<span class="c1"># Set pandas option and get pint units</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+<span class="n">units</span><span class="p">,</span> <span class="n">final_units</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">get_pint_units</span><span class="p">()</span>
+
+<span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -d -iv -m -g -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compiler    : GCC 9.3.0
+OS          : Linux
+Release     : 3.10.0-1127.18.2.el7.x86_64
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 72
+Architecture: 64bit
+
+Hostname: crhtc45
+
+Git hash: 4b226d26262ccbcfa3de24ba08a1145e9901a5fa
+
+pandas: 1.2.4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="copy-data-that-is-shared-with-time-series-plotting-from-aau">
+<h2>Copy data that is shared with time series plotting from aau<a class="headerlink" href="#copy-data-that-is-shared-with-time-series-plotting-from-aau" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_vars</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">global_vars</span><span class="p">()</span>
+
+<span class="n">xp_dir</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;xp_dir&#39;</span><span class="p">]</span>
+<span class="nb">vars</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;vars&#39;</span><span class="p">]</span>
+<span class="n">experiments</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;experiments&#39;</span><span class="p">]</span>
+<span class="n">experiment_longnames</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;experiment_longnames&#39;</span><span class="p">]</span>
+<span class="n">experiment_span</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;experiment_span&#39;</span><span class="p">]</span>
+<span class="n">experiment_dict</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;experiment_dict&#39;</span><span class="p">]</span>
+<span class="n">time_slices</span> <span class="o">=</span> <span class="n">global_vars</span><span class="p">[</span><span class="s1">&#39;time_slices&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="read-output-from-make-timeseries-ipynb">
+<h3>Read output from Make Timeseries.ipynb<a class="headerlink" href="#read-output-from-make-timeseries-ipynb" title="Permalink to this headline">¶</a></h3>
+<p>Files were written by <code class="docutils literal notranslate"><span class="pre">xpersist</span></code> and are read in using <code class="docutils literal notranslate"><span class="pre">xr.open_dataset</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">ann_avg</span><span class="p">,</span> <span class="n">cesm_units</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">get_ann_means_and_units</span><span class="p">(</span><span class="n">xp_dir</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">experiments</span><span class="p">,</span> <span class="n">experiment_longnames</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.27 s, sys: 93.9 ms, total: 1.36 s
+Wall time: 1.41 s
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reduce-data-sets">
+<h1>Reduce Data Sets<a class="headerlink" href="#reduce-data-sets" title="Permalink to this headline">¶</a></h1>
+<p>Data has been reduced to annual means, but the netcdf files contain every year in the dataset.
+For generating tables, we want to look at specific time periods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aau.print_exp_time_bounds(ann_avg[vars[0]], time_slices)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="define-labels-for-rows-in-each-table">
+<h2>Define labels for rows in each table<a class="headerlink" href="#define-labels-for-rows-in-each-table" title="Permalink to this headline">¶</a></h2>
+<p>Also determine correct number of digits to write each value out to</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_specs</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">get_table_specs</span><span class="p">(</span><span class="n">final_units</span><span class="p">,</span> <span class="n">o2_levs</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="average-over-all-ensemble-members-and-time-for-proper-time-period">
+<h2>Average over all ensemble members and time (for proper time period)<a class="headerlink" href="#average-over-all-ensemble-members-and-time-for-proper-time-period" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diagnostic_values</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">compute_diagnostic_values</span><span class="p">(</span><span class="n">experiments</span><span class="p">,</span>
+                                                  <span class="n">table_specs</span><span class="p">,</span>
+                                                  <span class="n">ann_avg</span><span class="p">,</span>
+                                                  <span class="n">time_slices</span><span class="p">,</span>
+                                                  <span class="n">cesm_units</span><span class="p">,</span>
+                                                  <span class="n">final_units</span><span class="p">,</span>
+                                                  <span class="n">experiment_span</span><span class="p">,</span>
+                                                  <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   * Can not compute SiO2_FLUX_100m for cesm1_PI
+   * Can not compute NHx_SURFACE_EMIS for cesm1_PI
+   * Can not compute SedDenitrif for cesm1_PI
+   * Can not compute ponToSed for cesm1_PI
+   * Can not compute DON_RIV_FLUX for cesm1_PI
+   * Can not compute DONr_RIV_FLUX for cesm1_PI
+   * Can not compute NO3_RIV_FLUX for cesm1_PI
+   * No additional denitrification terms for cesm1_PI
+   * Can not compute SiO2_FLUX_100m for cesm1_PI_esm
+   * Can not compute NHx_SURFACE_EMIS for cesm1_PI_esm
+   * Can not compute SedDenitrif for cesm1_PI_esm
+   * Can not compute ponToSed for cesm1_PI_esm
+   * Can not compute DON_RIV_FLUX for cesm1_PI_esm
+   * Can not compute DONr_RIV_FLUX for cesm1_PI_esm
+   * Can not compute NO3_RIV_FLUX for cesm1_PI_esm
+   * No additional denitrification terms for cesm1_PI_esm
+   * Can not compute SiO2_FLUX_100m for cesm1_hist
+   * Can not compute NHx_SURFACE_EMIS for cesm1_hist
+   * Can not compute SedDenitrif for cesm1_hist
+   * Can not compute ponToSed for cesm1_hist
+   * Can not compute DON_RIV_FLUX for cesm1_hist
+   * Can not compute DONr_RIV_FLUX for cesm1_hist
+   * Can not compute NO3_RIV_FLUX for cesm1_hist
+   * No additional denitrification terms for cesm1_hist
+   * Can not compute SiO2_FLUX_100m for cesm1_hist_esm
+   * Can not compute NHx_SURFACE_EMIS for cesm1_hist_esm
+   * Can not compute SedDenitrif for cesm1_hist_esm
+   * Can not compute ponToSed for cesm1_hist_esm
+   * Can not compute DON_RIV_FLUX for cesm1_hist_esm
+   * Can not compute DONr_RIV_FLUX for cesm1_hist_esm
+   * Can not compute NO3_RIV_FLUX for cesm1_hist_esm
+   * No additional denitrification terms for cesm1_hist_esm
+   * Can not compute SiO2_FLUX_100m for cesm1_RCP85
+   * Can not compute NHx_SURFACE_EMIS for cesm1_RCP85
+   * Can not compute SedDenitrif for cesm1_RCP85
+   * Can not compute ponToSed for cesm1_RCP85
+   * Can not compute DON_RIV_FLUX for cesm1_RCP85
+   * Can not compute DONr_RIV_FLUX for cesm1_RCP85
+   * Can not compute NO3_RIV_FLUX for cesm1_RCP85
+   * No additional denitrification terms for cesm1_RCP85
+   * Can not compute SiO2_FLUX_100m for cesm1_hist_RCP85
+   * Can not compute NHx_SURFACE_EMIS for cesm1_hist_RCP85
+   * Can not compute SedDenitrif for cesm1_hist_RCP85
+   * Can not compute ponToSed for cesm1_hist_RCP85
+   * Can not compute DON_RIV_FLUX for cesm1_hist_RCP85
+   * Can not compute DONr_RIV_FLUX for cesm1_hist_RCP85
+   * Can not compute NO3_RIV_FLUX for cesm1_hist_RCP85
+   * No additional denitrification terms for cesm1_hist_RCP85
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="actually-make-the-tables">
+<h2>Actually make the tables<a class="headerlink" href="#actually-make-the-tables" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_table</span><span class="p">(</span><span class="n">table_specs</span><span class="p">,</span> <span class="n">table_vars</span><span class="p">,</span> <span class="n">test_exps</span><span class="p">):</span>
+    <span class="n">table_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Flux or Concentration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">varname</span> <span class="ow">in</span> <span class="n">table_vars</span><span class="p">:</span>
+        <span class="c1"># Unpack dictionaries in diag_columns</span>
+        <span class="n">table_key</span> <span class="o">=</span> <span class="n">table_specs</span><span class="p">[</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="n">table_specs</span><span class="p">[</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
+        <span class="n">rounding</span> <span class="o">=</span> <span class="n">table_specs</span><span class="p">[</span><span class="n">varname</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span>
+        <span class="c1"># Get row header</span>
+        <span class="k">if</span> <span class="n">units</span><span class="p">:</span>
+            <span class="n">row_header</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">table_key</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">units</span><span class="si">}</span><span class="s1">)&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">row_header</span> <span class="o">=</span> <span class="n">table_key</span>
+        <span class="n">table_dict</span><span class="p">[</span><span class="s1">&#39;Flux or Concentration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_header</span><span class="p">)</span>
+
+        <span class="c1"># Get values rounded to correct number of digits</span>
+        <span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">test_exps</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">experiment_longnames</span><span class="p">[</span><span class="n">exp</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">table_dict</span><span class="p">:</span>
+                <span class="n">table_dict</span><span class="p">[</span><span class="n">experiment_longnames</span><span class="p">[</span><span class="n">exp</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># Workaround to drop decimal place when rounding to nearest integer</span>
+            <span class="k">if</span> <span class="n">exp</span> <span class="o">!=</span> <span class="s1">&#39;diff&#39;</span><span class="p">:</span>
+                <span class="n">round_to</span> <span class="o">=</span> <span class="n">rounding</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">round_to</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="nb">format</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;0.</span><span class="si">{</span><span class="n">round_to</span><span class="si">}</span><span class="s1">f&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">rounded_val</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">diagnostic_values</span><span class="p">[</span><span class="n">exp</span><span class="p">][</span><span class="n">table_key</span><span class="p">]</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:{</span><span class="nb">format</span><span class="si">}}</span><span class="s1">&#39;</span>
+                <span class="n">table_dict</span><span class="p">[</span><span class="n">experiment_longnames</span><span class="p">[</span><span class="n">exp</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rounded_val</span><span class="p">)</span>
+                <span class="c1"># Add asterisk denoting CESM1 integrals are 150m, not full depth</span>
+                <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;cesm1&#39;</span> <span class="ow">in</span> <span class="n">exp</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">varname</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;NPP&#39;</span><span class="p">,</span> <span class="s1">&#39;NPP_diat&#39;</span><span class="p">]):</span>
+                    <span class="n">table_dict</span><span class="p">[</span><span class="n">experiment_longnames</span><span class="p">[</span><span class="n">exp</span><span class="p">]][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">table_dict</span><span class="p">[</span><span class="n">experiment_longnames</span><span class="p">[</span><span class="n">exp</span><span class="p">]][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">table_dict</span><span class="p">[</span><span class="n">experiment_longnames</span><span class="p">[</span><span class="n">exp</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">table_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s1">&#39;cesm1_PI_esm&#39;</span> <span class="ow">in</span> <span class="n">diagnostic_values</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">global_vars</span><span class="p">[</span><span class="s2">&quot;include_marg_seas&quot;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Comparison of cesm1_PI_esm&#39;</span><span class="p">)</span>
+<span class="c1">#         let var = fg_co2[d=2]</span>
+<span class="c1">#         show var var</span>
+<span class="c1">#          VAR = FG_CO2[D=2]</span>
+<span class="c1">#         list var_integral_PgC_year</span>
+<span class="c1">#                      VARIABLE : (1E-9 * 12 * 1E-15 * 86400 * 365) * VAR_MUL_AREA[I=@SUM,J=@SUM]</span>
+<span class="c1">#                      X        : 0.5 to 320.5</span>
+<span class="c1">#                      Y        : 0.5 to 384.5</span>
+<span class="c1">#                      ENSEMBLE : 0421</span>
+<span class="c1">#                  -0.02491</span>
+        <span class="k">if</span> <span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">][</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">diagnostic_values</span><span class="p">[</span><span class="s2">&quot;cesm1_PI_esm&quot;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;FG_CO2: </span><span class="si">{</span><span class="n">diagnostic_values</span><span class="p">[</span><span class="s2">&quot;cesm1_PI_esm&quot;</span><span class="p">][</span><span class="n">table_specs</span><span class="p">[</span><span class="s2">&quot;CO2&quot;</span><span class="p">][</span><span class="s2">&quot;key&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1"> (should be -0.02491)&#39;</span><span class="p">)</span>
+
+<span class="c1">#         let var = POC_FLUX_IN_100m[d=2]</span>
+<span class="c1">#         show var var</span>
+<span class="c1">#          VAR = POC_FLUX_IN_100M[D=2]</span>
+<span class="c1">#         list/prec=6 var_integral_PgC_year</span>
+<span class="c1">#                      VARIABLE : (1E-9 * 12 * 1E-15 * 86400 * 365) * VAR_MUL_AREA[I=@SUM,J=@SUM]</span>
+<span class="c1">#                      X        : 0.5 to 320.5</span>
+<span class="c1">#                      Y        : 0.5 to 384.5</span>
+<span class="c1">#                      ENSEMBLE : 0421</span>
+<span class="c1">#                   8.06490</span>
+        <span class="k">if</span> <span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;POC&#39;</span><span class="p">][</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">diagnostic_values</span><span class="p">[</span><span class="s2">&quot;cesm1_PI_esm&quot;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;POC_FLUX_IN_100m: </span><span class="si">{</span><span class="n">diagnostic_values</span><span class="p">[</span><span class="s2">&quot;cesm1_PI_esm&quot;</span><span class="p">][</span><span class="n">table_specs</span><span class="p">[</span><span class="s2">&quot;POC&quot;</span><span class="p">][</span><span class="s2">&quot;key&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1"> (should be 8.06490)&#39;</span><span class="p">)</span>
+
+<span class="c1">#     let var = photoC_diat_zint_100m[d=2]+photoC_sp_zint_100m[d=2]+photoC_diaz_zint_100m[d=2]</span>
+<span class="c1">#     show var var</span>
+<span class="c1">#      VAR = PHOTOC_DIAT_ZINT_100M[D=2]+PHOTOC_SP_ZINT_100M[D=2]+PHOTOC_DIAZ_ZINT_100M[D=2]</span>
+<span class="c1">#     list/prec=6 var_integral_PgC_year</span>
+<span class="c1">#                  VARIABLE : (1E-9 * 12 * 1E-15 * 86400 * 365) * VAR_MUL_AREA[I=@SUM,J=@SUM]</span>
+<span class="c1">#                  X        : 0.5 to 320.5</span>
+<span class="c1">#                  Y        : 0.5 to 384.5</span>
+<span class="c1">#                  ENSEMBLE : 0421</span>
+<span class="c1">#               55.4878</span>
+        <span class="k">if</span> <span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;NPP_100m&#39;</span><span class="p">][</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">diagnostic_values</span><span class="p">[</span><span class="s2">&quot;cesm1_PI_esm&quot;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;photoC_diat_zint_100m: </span><span class="si">{</span><span class="n">diagnostic_values</span><span class="p">[</span><span class="s2">&quot;cesm1_PI_esm&quot;</span><span class="p">][</span><span class="n">table_specs</span><span class="p">[</span><span class="s2">&quot;NPP_100m&quot;</span><span class="p">][</span><span class="s2">&quot;key&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1"> (should be 55.4878)&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Comparison of CESM1 values is only done when including marginal seas in global averages&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No comparisons done, since cesm1_PI_esm experiment not included&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Comparison of CESM1 values is only done when including marginal seas in global averages
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keith L&#39;s table</span>
+<span class="n">table_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;NPP_100m&#39;</span><span class="p">,</span> <span class="s1">&#39;POC&#39;</span><span class="p">]</span>
+
+<span class="c1"># Match number of digits in orginal paper</span>
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;NPP_100m&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Add difference column</span>
+<span class="n">new_exp</span> <span class="o">=</span> <span class="s1">&#39;diff&#39;</span>
+<span class="n">diagnostic_values</span><span class="p">[</span><span class="n">new_exp</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">experiment_longnames</span><span class="p">[</span><span class="n">new_exp</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Difference&#39;</span>
+<span class="k">for</span> <span class="n">table_key</span> <span class="ow">in</span> <span class="n">table_specs</span><span class="p">:</span>
+    <span class="n">table_spec</span> <span class="o">=</span> <span class="n">table_specs</span><span class="p">[</span><span class="n">table_key</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;cesm1_hist&#39;</span> <span class="ow">in</span> <span class="n">diagnostic_values</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;cesm1_PI&#39;</span> <span class="ow">in</span> <span class="n">diagnostic_values</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># If key has not been populated, we want a dash here</span>
+            <span class="n">diagnostic_values</span><span class="p">[</span><span class="n">new_exp</span><span class="p">][</span><span class="n">table_spec</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">diagnostic_values</span><span class="p">[</span><span class="s1">&#39;cesm1_hist&#39;</span><span class="p">][</span><span class="n">table_spec</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]]</span> <span class="o">-</span> <span class="n">diagnostic_values</span><span class="p">[</span><span class="s1">&#39;cesm1_PI&#39;</span><span class="p">][</span><span class="n">table_spec</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">diagnostic_values</span><span class="p">[</span><span class="n">new_exp</span><span class="p">][</span><span class="n">table_spec</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">diagnostic_values</span><span class="p">[</span><span class="n">new_exp</span><span class="p">][</span><span class="n">table_spec</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">make_table</span><span class="p">(</span><span class="n">table_specs</span><span class="p">,</span> <span class="n">table_vars</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cesm1_PI&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm1_hist&#39;</span><span class="p">,</span> <span class="n">new_exp</span><span class="p">]))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Flux or Concentration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>preindustrial (CESM1)</th>
+      <th>1981-2005 (CESM1)</th>
+      <th>Difference</th>
+    </tr>
+    <tr>
+      <th>Flux or Concentration</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Air-sea CO$_2$ flux (PgC/yr)</th>
+      <td>-0.023</td>
+      <td>1.773</td>
+      <td>1.796</td>
+    </tr>
+    <tr>
+      <th>Net primary production, top 100m (PgC/yr)</th>
+      <td>55.35</td>
+      <td>55.53</td>
+      <td>0.178</td>
+    </tr>
+    <tr>
+      <th>Sinking POC at 100 m (PgC/yr)</th>
+      <td>8.07</td>
+      <td>8.00</td>
+      <td>-0.074</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keith M&#39;s original table</span>
+<span class="c1"># We use a different set of preindustrial years</span>
+<span class="c1"># Also, maybe he uses equal weighting for month -&gt; year instead of number of days per month?</span>
+
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;NPP_100m&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">test_exps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cesm1_PI_esm&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm1_hist_esm&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm1_RCP45&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm1_RCP85&#39;</span><span class="p">]</span>
+<span class="n">table_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NPP&#39;</span><span class="p">,</span> <span class="s1">&#39;NPP_100m&#39;</span><span class="p">,</span> <span class="s1">&#39;POC&#39;</span><span class="p">,</span> <span class="s1">&#39;CaCO3&#39;</span><span class="p">,</span> <span class="s1">&#39;rain&#39;</span><span class="p">,</span> <span class="s1">&#39;Nfix&#39;</span><span class="p">,</span> <span class="s1">&#39;Ndep&#39;</span><span class="p">,</span> <span class="s1">&#39;denitrif&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Ncycle&#39;</span><span class="p">,</span> <span class="s1">&#39;CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;NPP_diat&#39;</span><span class="p">,</span> <span class="s1">&#39;NPP_diat_100m&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s1">&#39;o2_under_20&#39;</span><span class="p">]</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">make_table</span><span class="p">(</span><span class="n">table_specs</span><span class="p">,</span> <span class="n">table_vars</span><span class="p">,</span> <span class="n">test_exps</span><span class="p">))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Flux or Concentration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>preindustrial (CESM1, BPRP)</th>
+      <th>1990s (CESM1)</th>
+      <th>RCP 4.5 2090s (CESM1)</th>
+      <th>RCP 8.5 2090s (CESM1)</th>
+    </tr>
+    <tr>
+      <th>Flux or Concentration</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Net primary production, full depth (PgC/yr)</th>
+      <td>55.8*</td>
+      <td>56.3*</td>
+      <td>-</td>
+      <td>54.0*</td>
+    </tr>
+    <tr>
+      <th>Net primary production, top 100m (PgC/yr)</th>
+      <td>55.3</td>
+      <td>55.8</td>
+      <td>-</td>
+      <td>53.5</td>
+    </tr>
+    <tr>
+      <th>Sinking POC at 100 m (PgC/yr)</th>
+      <td>8.05</td>
+      <td>8.05</td>
+      <td>-</td>
+      <td>7.20</td>
+    </tr>
+    <tr>
+      <th>Sinking CaCO$_3$ at 100 m (PgC/yr)</th>
+      <td>0.756</td>
+      <td>0.750</td>
+      <td>-</td>
+      <td>0.723</td>
+    </tr>
+    <tr>
+      <th>Rain ratio (CaCO$_3$/POC) at 100 m</th>
+      <td>0.094</td>
+      <td>0.093</td>
+      <td>-</td>
+      <td>0.100</td>
+    </tr>
+    <tr>
+      <th>Nitrogen fixation (TgN/yr)</th>
+      <td>176.7</td>
+      <td>173.6</td>
+      <td>-</td>
+      <td>143.7</td>
+    </tr>
+    <tr>
+      <th>Nitrogen deposition (TgN/yr)</th>
+      <td>6.6</td>
+      <td>29.1</td>
+      <td>-</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>Water Column Denitrification (TgN/yr)</th>
+      <td>189.7</td>
+      <td>193.1</td>
+      <td>-</td>
+      <td>187.5</td>
+    </tr>
+    <tr>
+      <th>N cycle imbalance (TgN/yr)</th>
+      <td>-6.4</td>
+      <td>9.6</td>
+      <td>-</td>
+      <td>-13.8</td>
+    </tr>
+    <tr>
+      <th>Air-sea CO$_2$ flux (PgC/yr)</th>
+      <td>-0.02</td>
+      <td>2.18</td>
+      <td>-</td>
+      <td>4.71</td>
+    </tr>
+    <tr>
+      <th>Diatom primary production, full depth (\%)</th>
+      <td>35*</td>
+      <td>35*</td>
+      <td>-</td>
+      <td>32*</td>
+    </tr>
+    <tr>
+      <th>Diatom primary production, top 100m (\%)</th>
+      <td>34</td>
+      <td>34</td>
+      <td>-</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>Mean ocean oxygen ($\mu$M)</th>
+      <td>192</td>
+      <td>190</td>
+      <td>-</td>
+      <td>183</td>
+    </tr>
+    <tr>
+      <th>OMZ volume (O$_2$ $&lt;$20 $\mu$M) (10$^1$$^5$ m$^3$)</th>
+      <td>37</td>
+      <td>38</td>
+      <td>-</td>
+      <td>46</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Updated table for our paper</span>
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;CO2&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;NPP_100m&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">table_specs</span><span class="p">[</span><span class="s1">&#39;SiO2&#39;</span><span class="p">][</span><span class="s1">&#39;rounding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># test_exps = [&#39;cesm2_PI&#39;, &#39;cesm2_hist&#39;, &#39;cesm2_SSP1-2.6&#39;, &#39;cesm2_SSP2-4.5&#39;, &#39;cesm2_SSP3-7.0&#39;, &#39;cesm2_SSP5-8.5&#39;]</span>
+<span class="n">test_exps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cesm1_PI&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm1_hist_RCP85&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm1_RCP85&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm2_PI&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm2_hist&#39;</span><span class="p">,</span> <span class="s1">&#39;cesm2_SSP5-8.5&#39;</span><span class="p">]</span>
+<span class="n">table_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NPP&#39;</span><span class="p">,</span>
+<span class="c1">#               &#39;NPP_100m&#39;,</span>
+              <span class="s1">&#39;POC&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;CaCO3&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;SiO2&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;rain&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Nfix&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Ndep&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;denitrif&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;denitrif2&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Nbury&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Nemis&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;rivflux&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Ncycle&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;CO2&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;NPP_diat_100m&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;NPP_diat&#39;</span><span class="p">,</span>
+<span class="c1">#               &#39;NPP_diat_100m&#39;,</span>
+<span class="c1">#               &#39;O2&#39;,</span>
+<span class="c1">#               &#39;o2_under_20&#39;,</span>
+<span class="c1">#               &#39;o2_under_5&#39;,</span>
+<span class="c1">#               &#39;o2_under_60&#39;,</span>
+<span class="c1">#               &#39;o2_under_80&#39;</span>
+             <span class="p">]</span>
+<span class="n">our_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">make_table</span><span class="p">(</span><span class="n">table_specs</span><span class="p">,</span> <span class="n">table_vars</span><span class="p">,</span> <span class="n">test_exps</span><span class="p">))</span>
+<span class="n">our_table</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Flux or Concentration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>preindustrial (CESM1)</th>
+      <th>1990 - 2014 (CESM1)</th>
+      <th>RCP 8.5 2090s (CESM1)</th>
+      <th>preindustrial (CESM2)</th>
+      <th>1990-2014 (CESM2)</th>
+      <th>SSP5-8.5 2090s (CESM2)</th>
+    </tr>
+    <tr>
+      <th>Flux or Concentration</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Net primary production, full depth (PgC/yr)</th>
+      <td>55.9*</td>
+      <td>56.1*</td>
+      <td>54.0*</td>
+      <td>48.2</td>
+      <td>48.8</td>
+      <td>49.8</td>
+    </tr>
+    <tr>
+      <th>Sinking POC at 100 m (PgC/yr)</th>
+      <td>8.07</td>
+      <td>7.98</td>
+      <td>7.20</td>
+      <td>6.98</td>
+      <td>7.05</td>
+      <td>6.69</td>
+    </tr>
+    <tr>
+      <th>Sinking CaCO$_3$ at 100 m (PgC/yr)</th>
+      <td>0.757</td>
+      <td>0.748</td>
+      <td>0.723</td>
+      <td>0.767</td>
+      <td>0.767</td>
+      <td>0.808</td>
+    </tr>
+    <tr>
+      <th>Sinking SiO$_2$ at 100 m (Tmol/yr)</th>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>77.6</td>
+      <td>78.3</td>
+      <td>69.9</td>
+    </tr>
+    <tr>
+      <th>Rain ratio (CaCO$_3$/POC) at 100 m</th>
+      <td>0.094</td>
+      <td>0.094</td>
+      <td>0.100</td>
+      <td>0.110</td>
+      <td>0.109</td>
+      <td>0.121</td>
+    </tr>
+    <tr>
+      <th>Nitrogen fixation (TgN/yr)</th>
+      <td>175.3</td>
+      <td>169.4</td>
+      <td>143.7</td>
+      <td>240.6</td>
+      <td>243.1</td>
+      <td>285.0</td>
+    </tr>
+    <tr>
+      <th>Nitrogen deposition (TgN/yr)</th>
+      <td>6.6</td>
+      <td>29.6</td>
+      <td>30.0</td>
+      <td>13.3</td>
+      <td>37.2</td>
+      <td>38.3</td>
+    </tr>
+    <tr>
+      <th>Water Column Denitrification (TgN/yr)</th>
+      <td>190.0</td>
+      <td>193.7</td>
+      <td>187.5</td>
+      <td>184.8</td>
+      <td>191.6</td>
+      <td>255.8</td>
+    </tr>
+    <tr>
+      <th>Sediment Denitrification (TgN/yr)</th>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>67</td>
+      <td>71</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>Nitrogen Burial to Sediment (TgN/yr)</th>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>24</td>
+      <td>27</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>Nitrogen surface emissions (TgN/yr)</th>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>6</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Nitrogen River Flux (TgN/yr)</th>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>13</td>
+      <td>25</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>N cycle imbalance (TgN/yr)</th>
+      <td>-8.0</td>
+      <td>5.2</td>
+      <td>-13.8</td>
+      <td>-14.1</td>
+      <td>10.3</td>
+      <td>-0.8</td>
+    </tr>
+    <tr>
+      <th>Air-sea CO$_2$ flux (PgC/yr)</th>
+      <td>-0.02</td>
+      <td>2.03</td>
+      <td>4.71</td>
+      <td>-0.04</td>
+      <td>2.04</td>
+      <td>5.33</td>
+    </tr>
+    <tr>
+      <th>Diatom primary production, top 100m (\%)</th>
+      <td>34</td>
+      <td>34</td>
+      <td>32</td>
+      <td>35</td>
+      <td>37</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>Diatom primary production, full depth (\%)</th>
+      <td>35*</td>
+      <td>35*</td>
+      <td>32*</td>
+      <td>36</td>
+      <td>37</td>
+      <td>31</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">our_table</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{tabular}{lllllll}
+\toprule
+                      Flux or Concentration &amp; preindustrial (CESM1) &amp; 1990 - 2014 (CESM1) &amp; RCP 8.5 2090s (CESM1) &amp; preindustrial (CESM2) &amp; 1990-2014 (CESM2) &amp; SSP5-8.5 2090s (CESM2) \\
+\midrule
+Net primary production, full depth (PgC/yr) &amp;                 55.9* &amp;               56.1* &amp;                 54.0* &amp;                  48.2 &amp;              48.8 &amp;                   49.8 \\
+              Sinking POC at 100 m (PgC/yr) &amp;                  8.07 &amp;                7.98 &amp;                  7.20 &amp;                  6.98 &amp;              7.05 &amp;                   6.69 \\
+         Sinking CaCO$_3$ at 100 m (PgC/yr) &amp;                 0.757 &amp;               0.748 &amp;                 0.723 &amp;                 0.767 &amp;             0.767 &amp;                  0.808 \\
+         Sinking SiO$_2$ at 100 m (Tmol/yr) &amp;                     - &amp;                   - &amp;                     - &amp;                  77.6 &amp;              78.3 &amp;                   69.9 \\
+         Rain ratio (CaCO$_3$/POC) at 100 m &amp;                 0.094 &amp;               0.094 &amp;                 0.100 &amp;                 0.110 &amp;             0.109 &amp;                  0.121 \\
+                 Nitrogen fixation (TgN/yr) &amp;                 175.3 &amp;               169.4 &amp;                 143.7 &amp;                 240.6 &amp;             243.1 &amp;                  285.0 \\
+               Nitrogen deposition (TgN/yr) &amp;                   6.6 &amp;                29.6 &amp;                  30.0 &amp;                  13.3 &amp;              37.2 &amp;                   38.3 \\
+      Water Column Denitrification (TgN/yr) &amp;                 190.0 &amp;               193.7 &amp;                 187.5 &amp;                 184.8 &amp;             191.6 &amp;                  255.8 \\
+          Sediment Denitrification (TgN/yr) &amp;                     - &amp;                   - &amp;                     - &amp;                    67 &amp;                71 &amp;                     68 \\
+       Nitrogen Burial to Sediment (TgN/yr) &amp;                     - &amp;                   - &amp;                     - &amp;                    24 &amp;                27 &amp;                     22 \\
+        Nitrogen surface emissions (TgN/yr) &amp;                     - &amp;                   - &amp;                     - &amp;                     6 &amp;                 5 &amp;                      3 \\
+               Nitrogen River Flux (TgN/yr) &amp;                     - &amp;                   - &amp;                     - &amp;                    13 &amp;                25 &amp;                     25 \\
+                 N cycle imbalance (TgN/yr) &amp;                  -8.0 &amp;                 5.2 &amp;                 -13.8 &amp;                 -14.1 &amp;              10.3 &amp;                   -0.8 \\
+               Air-sea CO$_2$ flux (PgC/yr) &amp;                 -0.02 &amp;                2.03 &amp;                  4.71 &amp;                 -0.04 &amp;              2.04 &amp;                   5.33 \\
+   Diatom primary production, top 100m (\%) &amp;                    34 &amp;                  34 &amp;                    32 &amp;                    35 &amp;                37 &amp;                     31 \\
+ Diatom primary production, full depth (\%) &amp;                   35* &amp;                 35* &amp;                   32* &amp;                    36 &amp;                37 &amp;                     31 \\
+\bottomrule
+\end{tabular}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-miniconda3-cesm2-marbl-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-miniconda3-cesm2-marbl-py",
+            path: "./tables"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-miniconda3-cesm2-marbl-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../background/obs_datasets.html" title="previous page">Observational Datasets</a>
+    <a class='right-next' id="next-link" href="../figures/mld.html" title="next page">Mixed Layer Depth (MLD)</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
