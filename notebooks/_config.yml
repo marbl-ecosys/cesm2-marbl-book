@@ -1,0 +1,4 @@
+title: CESM2 MARBL
+logo: marbl_photo.jpeg
+execute:
+  execute_notebooks: 'off'

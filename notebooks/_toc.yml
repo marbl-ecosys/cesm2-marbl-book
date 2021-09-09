@@ -1,0 +1,21 @@
+- file: introduction
+- part: Observations Description
+  chapters:
+  - file: background/obs_datasets
+- part: Model Observation Comparison
+  chapters:
+  - file: tables/Global_Flux_Table
+  - file: figures/mld
+  - file: figures/ventilation
+  - file: figures/nutrient-plots
+  - file: figures/nutrient-limitation
+  - file: figures/biological-pump
+  - file: figures/co2-flux
+  - file: figures/DOM-comparison
+  - file: figures/Ncycle-plots
+  - file: figures/dFe-comparison
+  - file: figures/transient-fgco2
+  - file: figures/transient-biological-pump
+- part: Conclusion
+  chapters:
+  - file: conclusions
