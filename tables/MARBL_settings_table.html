@@ -270,11 +270,12 @@
 <p>The bigger table lists most of the model parameters mentioned in the paper.
 The smaller table shows how the dissolution length scales vary with depth.</p>
 <p><em>Note: this notebook requires access to two MARBL subdirectories that should be
-soft-linked directly into this <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> directory:</em></p>
+soft-linked directly into this <code class="docutils literal notranslate"><span class="pre">notebooks/tables</span></code> directory:</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ln -s $MARBL/MARBL_tools .
 $ ln -s $MARBL/defaults .
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">$MARBL</span></code> here represents the path to your MARBL directory (ex. <code class="docutils literal notranslate"><span class="pre">/glade/work/mlevy/codes/MARBL</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MARBL_tools</span>
@@ -289,16 +290,24 @@ $ ln -s $MARBL/defaults .
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">01059</span><span class="n">a9011b8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">MARBL_tools</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">yaml</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compiler    : GCC 9.3.0
+OS          : Linux
+Release     : 3.10.0-1127.18.2.el7.x86_64
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 72
+Architecture: 64bit
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;MARBL_tools&#39;
+Hostname: crhtc50
+
+Git hash: f7efc674ad079e7ed2afac55349b4e28a724540f
+
+pandas: 1.2.4
+yaml  : 5.4.1
+numpy : 1.20.3
+sys   : 3.7.10 | packaged by conda-forge | (default, Feb 19 2021, 16:07:37) 
+[GCC 9.3.0]
+json  : 2.0.9
 </pre></div>
 </div>
 </div>
