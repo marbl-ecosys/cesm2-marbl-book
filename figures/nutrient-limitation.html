@@ -259,6 +259,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Nutrient Limitation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spin-up-a-dask-cluster">
+   Spin up a Dask Cluster
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-and-apply-the-calculation">
+   Setup and Apply the Calculation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-the-output-using-colorlblind-friendly-colors">
+   Plot the Output Using Colorlblind Friendly Colors
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -271,6 +304,9 @@
 <h1>Nutrient Limitation<a class="headerlink" href="#nutrient-limitation" title="Permalink to this headline">¶</a></h1>
 <p>Compute biomass-weighted-mean limitation terms in the upper ocean (i.e., top 150 m).</p>
 <p>Make 3 panel plot: maps of most limiting nutrient for each phytoplankton taxa (diatom, small phyto, diazotrophs).</p>
+</div>
+<div class="section" id="imports">
+<h1>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -314,13 +350,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/mclong/miniconda3/envs/co2-hole/lib/python3.7/site-packages/ncar_jobqueue/cluster.py:31: UserWarning: Unable to determine which NCAR cluster you are running on... Using an instance of `distributed.LocalCluster` class.
-  &#39;Unable to determine which NCAR cluster you are running on... Using an instance of `distributed.LocalCluster` class.&#39;
-</pre></div>
 </div>
 </div>
-</div>
+<div class="section" id="spin-up-a-dask-cluster">
+<h1>Spin up a Dask Cluster<a class="headerlink" href="#spin-up-a-dask-cluster" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_ClusterClient</span><span class="p">()</span>
@@ -330,11 +363,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/work/mclong/miniconda3/envs/co2-hole/lib/python3.7/site-packages/distributed/dashboard/core.py:79: UserWarning: 
-Port 8787 is already in use. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/glade/u/home/mgrover/miniconda3/envs/cesm2-marbl/lib/python3.7/site-packages/distributed/node.py:164: UserWarning: Port 8787 is already in use.
 Perhaps you already have a cluster running?
-Hosting the diagnostics dashboard on a random port instead.
-  warnings.warn(&quot;\n&quot; + msg)
+Hosting the HTTP server on port 33872 instead
+  expected, actual
 </pre></div>
 </div>
 <div class="output text_html"><table style="border: 2px solid white;">
@@ -342,8 +374,8 @@ Hosting the diagnostics dashboard on a random port instead.
 <td style="vertical-align: top; border: 0px solid white">
 <h3 style="text-align: left;">Client</h3>
 <ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
-  <li><b>Scheduler: </b>tcp://10.12.206.63:33696</li>
-  <li><b>Dashboard: </b><a href='https://jupyterhub.hpc.ucar.edu/stable/user/mclong/proxy/37262/status' target='_blank'>https://jupyterhub.hpc.ucar.edu/stable/user/mclong/proxy/37262/status</a>
+  <li><b>Scheduler: </b>tcp://10.12.206.51:40790</li>
+  <li><b>Dashboard: </b><a href='https://jupyterhub.hpc.ucar.edu/stable/user/mgrover/proxy/33872/status' target='_blank'>https://jupyterhub.hpc.ucar.edu/stable/user/mgrover/proxy/33872/status</a></li>
 </ul>
 </td>
 <td style="vertical-align: top; border: 0px solid white">
@@ -357,6 +389,9 @@ Hosting the diagnostics dashboard on a random port instead.
 </tr>
 </table></div></div>
 </div>
+</div>
+<div class="section" id="setup-and-apply-the-calculation">
+<h1>Setup and Apply the Calculation<a class="headerlink" href="#setup-and-apply-the-calculation" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_vars</span> <span class="o">=</span> <span class="n">aau</span><span class="o">.</span><span class="n">global_vars</span><span class="p">()</span>
@@ -440,79 +475,10 @@ Hosting the diagnostics dashboard on a random port instead.
 reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/nutrient_limitation/sp_lim.nc
 assuming cache is correct
 reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/nutrient_limitation/diat_lim.nc
-Reading data for diaz_P_lim_Cweight_avg_100m
-
---&gt; The keys in the returned dictionary of datasets are constructed as follows:
-	&#39;component:experiment:stream&#39;
-</pre></div>
-</div>
-<div class="output text_html">
-<div>
-    <style>
-        /* Turns off some styling */
-        progress {
-            /* gets rid of default border in Firefox and Opera. */
-            border: none;
-            /* Needs to be in here for Safari polyfill so background images work as expected. */
-            background-size: auto;
-        }
-        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-            background: #F44336;
-        }
-    </style>
-  <progress value='1' class='' max='1' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [1/1 00:00<00:00]
-</div>
-</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading data for diaz_Fe_lim_Cweight_avg_100m
-
---&gt; The keys in the returned dictionary of datasets are constructed as follows:
-	&#39;component:experiment:stream&#39;
-</pre></div>
-</div>
-<div class="output text_html">
-<div>
-    <style>
-        /* Turns off some styling */
-        progress {
-            /* gets rid of default border in Firefox and Opera. */
-            border: none;
-            /* Needs to be in here for Safari polyfill so background images work as expected. */
-            background-size: auto;
-        }
-        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-            background: #F44336;
-        }
-    </style>
-  <progress value='1' class='' max='1' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [1/1 00:00<00:00]
-</div>
-</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Will not pair diaz and N
-Will not pair diaz and SiO3
-
---&gt; The keys in the returned dictionary of datasets are constructed as follows:
-	&#39;component:experiment:stream&#39;
-</pre></div>
-</div>
-<div class="output text_html">
-<div>
-    <style>
-        /* Turns off some styling */
-        progress {
-            /* gets rid of default border in Firefox and Opera. */
-            border: none;
-            /* Needs to be in here for Safari polyfill so background images work as expected. */
-            background-size: auto;
-        }
-        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-            background: #F44336;
-        }
-    </style>
-  <progress value='1' class='' max='1' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [1/1 00:00<00:00]
-</div>
-</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>writing cache file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/nutrient_limitation/diaz_lim.nc
-CPU times: user 4.85 s, sys: 534 ms, total: 5.38 s
-Wall time: 1min 44s
+assuming cache is correct
+reading cached file: /glade/p/cgd/oce/projects/cesm2-marbl/xpersist_cache/nutrient_limitation/diaz_lim.nc
+CPU times: user 48.5 ms, sys: 14.4 ms, total: 62.9 ms
+Wall time: 211 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sp&#39;: &lt;xarray.Dataset&gt;
@@ -538,7 +504,7 @@ Wall time: 1min 44s
  Coordinates:
      TLONG     (nlat, nlon) float64 320.6 321.7 322.8 323.9 ... 318.9 319.4 319.8
      TLAT      (nlat, nlon) float64 -79.22 -79.22 -79.22 ... 72.2 72.19 72.19
-   * nutrient  (nutrient) &lt;U4 &#39;P&#39; &#39;Fe&#39; &#39;TEMP&#39;
+   * nutrient  (nutrient) object &#39;P&#39; &#39;Fe&#39; &#39;TEMP&#39;
  Dimensions without coordinates: nlat, nlon
  Data variables:
      diaz_lim  (nutrient, nlat, nlon) float64 nan nan nan nan ... 0.0 0.0 0.0 0.0}
@@ -586,6 +552,9 @@ Wall time: 1min 44s
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="plot-the-output-using-colorlblind-friendly-colors">
+<h1>Plot the Output Using Colorlblind Friendly Colors<a class="headerlink" href="#plot-the-output-using-colorlblind-friendly-colors" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;colorblind&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -595,7 +564,7 @@ Wall time: 1min 44s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/nutrient-limitation_6_0.png" src="../_images/nutrient-limitation_6_0.png" />
+<img alt="../_images/nutrient-limitation_10_0.png" src="../_images/nutrient-limitation_10_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -662,7 +631,7 @@ Wall time: 1min 44s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/nutrient-limitation_7_0.png" src="../_images/nutrient-limitation_7_0.png" />
+<img alt="../_images/nutrient-limitation_11_0.png" src="../_images/nutrient-limitation_11_0.png" />
 </div>
 </div>
 </div>
@@ -676,16 +645,16 @@ Wall time: 1min 44s
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "cmip6-201910"
+            mode: "conda-env-miniconda3-cesm2-marbl-py"
         },
         kernelOptions: {
-            kernelName: "cmip6-201910",
+            kernelName: "conda-env-miniconda3-cesm2-marbl-py",
             path: "./figures"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'cmip6-201910'</script>
+    <script>kernelName = 'conda-env-miniconda3-cesm2-marbl-py'</script>
 
               </div>
               
