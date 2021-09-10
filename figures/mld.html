@@ -259,6 +259,63 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spin-up-a-cluster">
+   Spin up a Cluster
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-the-model-grid">
+   Read in the Model Grid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-a-monthly-and-seasonal-climatology">
+   Compute a Monthly and Seasonal Climatology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-in-observational-data-from-the-world-ocean-atlas">
+   Read in Observational Data from the World Ocean Atlas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#once-our-computation-is-done-spin-down-the-cluster">
+     Once our Computation is Done, Spin Down the Cluster
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-the-output">
+   Plot the Output
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merge-our-datasets-together-and-add-a-cyclic-point">
+     Merge our Datasets Together and add a Cyclic Point
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-global-comparisons">
+     Plot Global Comparisons
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -269,6 +326,9 @@
                 
   <div class="section" id="mixed-layer-depth-mld">
 <h1>Mixed Layer Depth (MLD)<a class="headerlink" href="#mixed-layer-depth-mld" title="Permalink to this headline">¶</a></h1>
+<p>Compare Mixed Layer Depth (MLD) from the model with observtions for the World Ocean Atlas (WOA)</p>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
@@ -301,7 +361,6 @@
     <span class="n">xp</span><span class="o">.</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;cache_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cache_dir</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CESMDATAROOT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/glade/scratch/mclong/inputdata&#39;</span>
 <span class="kn">import</span> <span class="nn">pop_tools</span>
 
 <span class="kn">import</span> <span class="nn">climo_utils</span> <span class="k">as</span> <span class="nn">cu</span>
@@ -313,6 +372,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="spin-up-a-cluster">
+<h2>Spin up a Cluster<a class="headerlink" href="#spin-up-a-cluster" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_ClusterClient</span><span class="p">()</span>
@@ -342,6 +404,9 @@
 </tr>
 </table></div></div>
 </div>
+</div>
+<div class="section" id="read-in-the-model-grid">
+<h2>Read in the Model Grid<a class="headerlink" href="#read-in-the-model-grid" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_grid</span> <span class="o">=</span> <span class="n">pop_tools</span><span class="o">.</span><span class="n">get_grid</span><span class="p">(</span><span class="s1">&#39;POP_gx1v7&#39;</span><span class="p">)</span>
@@ -355,6 +420,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="compute-a-monthly-and-seasonal-climatology">
+<h2>Compute a Monthly and Seasonal Climatology<a class="headerlink" href="#compute-a-monthly-and-seasonal-climatology" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monthly_clim</span><span class="p">(</span><span class="n">ds</span><span class="p">):</span>
@@ -1350,6 +1418,9 @@ Data variables:
        [ 0,  0,  0, ...,  0,  0,  0],
        [ 0,  0,  0, ...,  0,  0,  0]], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-887bcb0a-ba4f-493a-8ebd-fa62785e6643' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-887bcb0a-ba4f-493a-8ebd-fa62785e6643' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
+</div>
+<div class="section" id="read-in-observational-data-from-the-world-ocean-atlas">
+<h2>Read in Observational Data from the World Ocean Atlas<a class="headerlink" href="#read-in-observational-data-from-the-world-ocean-atlas" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_obs</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
@@ -1919,6 +1990,8 @@ Data variables:
         [  0.        ,   0.        ,   0.        , ...,   0.        ,
            0.        ,   0.        ]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4a88b737-fe58-4a29-aac8-9def199e5d92' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4a88b737-fe58-4a29-aac8-9def199e5d92' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
+<div class="section" id="once-our-computation-is-done-spin-down-the-cluster">
+<h3>Once our Computation is Done, Spin Down the Cluster<a class="headerlink" href="#once-our-computation-is-done-spin-down-the-cluster" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1929,6 +2002,10 @@ Data variables:
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="plot-the-output">
+<h2>Plot the Output<a class="headerlink" href="#plot-the-output" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_mld</span><span class="o">.</span><span class="n">mld_125</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">season</span><span class="o">=</span><span class="s1">&#39;DJF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -1939,7 +2016,7 @@ Data variables:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x2b85be352f50&gt;
 </pre></div>
 </div>
-<img alt="../_images/mld_10_1.png" src="../_images/mld_10_1.png" />
+<img alt="../_images/mld_17_1.png" src="../_images/mld_17_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1952,9 +2029,11 @@ Data variables:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x2b85bf6599d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/mld_11_1.png" src="../_images/mld_11_1.png" />
+<img alt="../_images/mld_18_1.png" src="../_images/mld_18_1.png" />
 </div>
 </div>
+<div class="section" id="merge-our-datasets-together-and-add-a-cyclic-point">
+<h3>Merge our Datasets Together and add a Cyclic Point<a class="headerlink" href="#merge-our-datasets-together-and-add-a-cyclic-point" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_mld_merged</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">ds_grid</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;TLONG&#39;</span><span class="p">,</span> <span class="s1">&#39;TLAT&#39;</span><span class="p">]})</span>
@@ -2407,6 +2486,9 @@ Data variables:
        [0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d576c301-4f12-4904-a9ef-dbdaca8d0e9d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d576c301-4f12-4904-a9ef-dbdaca8d0e9d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
+</div>
+<div class="section" id="plot-global-comparisons">
+<h3>Plot Global Comparisons<a class="headerlink" href="#plot-global-comparisons" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap_field</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">thermal</span>
@@ -2531,7 +2613,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mld_13_0.png" src="../_images/mld_13_0.png" />
+<img alt="../_images/mld_22_0.png" src="../_images/mld_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2658,7 +2740,9 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mld_14_0.png" src="../_images/mld_14_0.png" />
+<img alt="../_images/mld_23_0.png" src="../_images/mld_23_0.png" />
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2672,16 +2756,16 @@ Data variables:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "conda-env-miniconda3-cesm2-marbl-py"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "conda-env-miniconda3-cesm2-marbl-py",
             path: "./figures"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'conda-env-miniconda3-cesm2-marbl-py'</script>
 
               </div>
               
